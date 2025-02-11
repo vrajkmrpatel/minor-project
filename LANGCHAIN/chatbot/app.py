@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
+LANGCHAIN_API_KEY = os.getenv("LANGSMITH_API_KEY")
 
 if not OPENAI_API_KEY:
     st.error("Missing OpenAI API Key! Please check your .env file.")

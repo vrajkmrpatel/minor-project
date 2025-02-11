@@ -1,42 +1,55 @@
-from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
+from extract_info import extract_info
+from generate_diagram import generate_use_case_diagram
+from use_case_description import generate_use_case_descriptions
 
-import streamlit as st
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
+# Retrieve OpenAI API Key
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 
-if not OPENAI_API_KEY:
-    st.error("Missing OpenAI API Key! Please check your .env file.")
-else:
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-    os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY
-    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+# Ensure the key is loaded
+if OPENAI_API_KEY is None:
+    raise ValueError("OpenAI API Key not found. Please set it in the .env file.")
 
-    # Creating chatbot prompt
-    prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful assistant. Please provide responses to user queries."),
-        ("user", "Question: {question}")
-    ])
+print("OpenAI API Key loaded successfully!")
 
-    # Streamlit UI
-    st.title("LangChain Chatbot with OpenAI API")
-    input_text = st.text_input("Ask me anything!")
+def process_problem_statement(problem_statement):
+    # Extract goals, actors, and interactions
+    response = extract_info(problem_statement)
+    print("Extracted Data:\n", response)
 
-    # OpenAI LLM and output parser
-    llm = ChatOpenAI(model="gpt-3.5-turbo")
-    output_parser = StrOutputParser()
+    # Convert response to structured format (Modify as needed)
+    actors = {
+        "primary": ["User"],
+        "secondary": ["Doctor", "Appointment System", "Payment Gateway"]
+    }
+    interactions = [
+        {"actor": "User", "use_case": "Book Appointment", "description": "User selects doctor and time slot"},
+        {"actor": "Appointment System", "use_case": "Confirm Appointment", "description": "System confirms booking"},
+        {"actor": "Payment Gateway", "use_case": "Process Payment", "description": "User completes payment"},
+        {"actor": "Doctor", "use_case": "Provide Consultation", "description": "Doctor consults patient"}
+    ]
 
-    # LangChain pipeline
-    chain = prompt | llm | output_parser
+    # Generate and display use case diagram
+    diagram = generate_use_case_diagram(actors, interactions)
+    diagram.render("use_case_diagram", format="png", cleanup=False)
+    
+    # Generate descriptions
+    use_case_descriptions = generate_use_case_descriptions(
+        ["Book Appointment", "Confirm Appointment", "Process Payment", "Provide Consultation"]
+    )
 
-    if input_text:
-        with st.spinner("Thinking..."):
-            response = chain.invoke({'question': input_text})
-            st.chat_message("assistant").write(response)
+    return {
+        "actors": actors,
+        "interactions": interactions,
+        "diagram": diagram,
+        "descriptions": use_case_descriptions
+    }
+
+if __name__ == "__main__":
+    problem_statement = "A user wants to schedule an online doctor appointment."
+    result = process_problem_statement(problem_statement)

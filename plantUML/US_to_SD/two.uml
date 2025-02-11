@@ -1,0 +1,24 @@
+@startuml
+|Data Consuming User|
+start
+:Initiate dataset search;
+:Enter title/metadata as search query;
+
+|Dataset Repository System|
+:Receive search request;
+:Validate search input;
+:Process search request;
+:Query Data Repository;
+
+|Data Repository|
+:Retrieve matching datasets;
+:Send datasets to System;
+
+|Dataset Repository System|
+:Process and format results;
+:Return search results;
+
+|Data Consuming User|
+:View and analyze search results;
+stop
+@enduml

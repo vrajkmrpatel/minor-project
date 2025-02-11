@@ -1,0 +1,13 @@
+@startuml
+actor "Data Consuming User" as User
+participant "Dataset Repository System" as System
+database "Data Repository" as Repo
+
+User -> System: Search dataset by title/metadata
+System -> System: Process search request
+System -> Repo: Query dataset repository
+Repo -> System: Return matching datasets
+System -> User: Return search results
+User -> User: View and analyze search results
+
+@enduml
