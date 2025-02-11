@@ -1,0 +1,19 @@
+@startuml
+actor Clerk
+actor "Payment Gateway" as PG
+actor "Airline Reservation System" as ARS
+participant "System" as SYS
+
+== Main Flow ==
+Clerk -> SYS : Select flight
+SYS -> Clerk : Retrieve ticket details, prompt for passenger info
+Clerk -> SYS : Enter passenger details, confirm selection
+SYS -> SYS : Validate entered details
+Clerk -> SYS : Submit payment request
+SYS -> PG : Forward payment request
+PG -> SYS : Authorize transaction, confirm payment
+SYS -> SYS : Generate ticket, assign PNR
+SYS -> ARS : Update reservation system
+SYS -> Clerk : Notify of successful booking
+
+@enduml
