@@ -18,12 +18,22 @@ os.environ["OPENAI_API_KEY"] = openai_api_key
 os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
-# Initialize the LLM
-llm = ChatOpenAI(temperature=0.7)
+
+# Streamlit UI
+st.title("AI-Powered Use Case Generator 📝")
+st.write("Enter a problem statement, choose a prompting technique, and generate a use case!")
+
+problem_statement = st.text_area("Problem Statement", "")
+technique = st.radio("Select Prompting Technique", [
+                     "Few-Shot Prompting", "Chain-of-Thought (CoT) Prompting"])
+
+# Model and temperature selection
+model = st.radio("Select Model", ["gpt-3.5-turbo", "gpt-4"])
+temperature = st.slider("Set Temperature", min_value=0.0,
+                        max_value=1.0, value=0.7, step=0.1)
+
 
 # Function to generate use case
-
-
 def generate_use_case(problem_statement, technique):
     if technique == "Few-Shot Prompting":
         prompt = PromptTemplate(
@@ -55,22 +65,22 @@ def generate_use_case(problem_statement, technique):
         prompt = PromptTemplate(
             input_variables=["problem_statement"],
             template="""
-      Assume you are a software engineer developing an Airline Ticketing System.
+      Assume you are a software engineer developing a system.
       To ensure correctness, follow these steps:
 
-      1️⃣ **Identify all the goals** of the system.  
+      1️. **Identify all the goals** of the system.  
       Think carefully about what the system is trying to achieve and list all the goals.
       
-      2️⃣ For each goal, determine the **primary actor** (who initiates the action).  
+      2️. For each goal, determine the **primary actor** (who initiates the action).  
       Think about who will trigger the action for each goal. It could be a customer, an admin, or a system.
 
-      3️⃣ Identify any **secondary actors** involved.  
+      3️. Identify any **secondary actors** involved.  
       These are entities that play a supporting role, such as systems or external services.
 
-      4️⃣ Describe the **interaction steps** between actors and the system.  
+      4️. Describe the **interaction steps** between actors and the system.  
       Detail the sequence of actions that take place to fulfill the goal.
 
-      5️⃣ Mention **exceptions** and alternative flows.  
+      5️. Mention **exceptions** and alternative flows.  
       Consider possible exceptions or edge cases where the flow might differ from the norm.
 
       ### Example Use Case ###
@@ -101,20 +111,49 @@ def generate_use_case(problem_statement, technique):
       """
         )
 
-    # Generate response
+    # Initialize the LLM with selected model and temperature
+    llm = ChatOpenAI(model_name=model, temperature=temperature)
     response = llm(prompt.format(problem_statement=problem_statement))
     return response
 
 
-# Streamlit UI
-st.title("AI-Powered Use Case Generator 📝")
-st.write("Enter a problem statement, choose a prompting technique, and generate a use case!")
+# Function to generate PlantUML script
+def generate_plantuml_script(use_case_output):
+    plantuml_prompt = PromptTemplate(
+        input_variables=["use_case_output"],
+        template="""Convert the textual use case into a valid **PlantUML script**:
+        
+        Now generate a **PlantUML script** for the following textual use case:
+        {use_case_output}
+        """
+    )
+    llm = ChatOpenAI(model_name=model, temperature=temperature)
+    plantuml_response = llm(
+        plantuml_prompt.format(use_case_output=use_case_output))
 
-problem_statement = st.text_area("Problem Statement", "")
-technique = st.radio("Select Prompting Technique", [
-                     "Few-Shot Prompting", "Chain-of-Thought (CoT) Prompting"])
+    return str(plantuml_response)  # Ensure we return a string
 
-if st.button("Generate Use Case"):
+
+import subprocess  # Ensure this is imported
+# Function to generate Use Case Diagram
+def generate_uml_diagram(plantuml_script, output_file="use_case_diagram.png"):
+    plantuml_script_str = str(plantuml_script)  # Ensure it's a string
+
+    with open("use_case_diagram.txt", "w") as file:
+        file.write(plantuml_script_str)  # Write as string
+
+    subprocess.run(
+        ["java", "-jar", "plantuml-1.2025.0.jar", "use_case_diagram.txt"])
+
+    if os.path.exists("use_case_diagram.png"):
+        os.rename("use_case_diagram.png", output_file)
+        return output_file
+    else:
+        raise FileNotFoundError(
+            "PlantUML did not generate 'use_case_diagram.png'. Check for errors.")
+
+
+if st.button("Generate Use Case & Diagram"):
     if problem_statement.strip() == "":
         st.warning("Please enter a problem statement.")
     else:
@@ -122,3 +161,12 @@ if st.button("Generate Use Case"):
             use_case_output = generate_use_case(problem_statement, technique)
             st.subheader("Generated Use Case")
             st.write(use_case_output)
+
+            with st.spinner("Generating PlantUML script..."):
+                plantuml_script = generate_plantuml_script(use_case_output)
+                st.subheader("Generated PlantUML Script")
+                st.code(plantuml_script, language="plantuml")
+
+                with st.spinner("Generating Use Case Diagram..."):
+                    diagram_path = generate_uml_diagram(plantuml_script)
+                    st.image(diagram_path, caption="Generated Use Case Diagram")
