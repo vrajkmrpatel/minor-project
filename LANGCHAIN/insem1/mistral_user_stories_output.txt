@@ -1,83 +1,111 @@
 1. **Front of the Card:**
-   As a NYU Insurance Executive, I want to review and approve the consolidated insurance packages so that they can be offered to customers.
+      As a NYU Insurance Company Executive, I want to review and approve the personalized insurance packages so that we can offer competitive packages in the market.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Receive consolidated packages for review.
-       (b) Approve or reject the packages based on market demand and internal policies.
-   - **Failure - Display Message:**
-       (a) "Package not ready for review, please check later."
-       (b) "Package does not meet internal policies, request rejection."
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive notifications for new package requests.
+          (b) View the proposed package details, suggestions, and pricing.
+          (c) Approve or reject the package with a reason.
+      - **Failure - Display Message:**
+          (a) "Package review is currently unavailable due to system maintenance."
+          (b) "Insufficient information in the package request."
 
-   **Front of the Card:**
-   As a Business Analyst at Retinodes Software Company, I want to update insurance policy details so that they are reflected in the system.
+  2. **Front of the Card:**
+      As an Insurance Agent, I want to access and manage my customer's packages so that I can efficiently assist them with their requests.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Edit and save changes to the insurance policy details.
-       (b) Update the policy information in the system.
-   - **Failure - Display Message:**
-       (a) "Unable to edit policy, insufficient permissions."
-       (b) "System error, please try again later."
+      **Back of the Card:**
+      - **Success:**
+          (a) View all active customer insurance packages.
+          (b) Access package details for specific customers.
+          (c) Update package information or request changes as needed.
+      - **Failure - Display Message:**
+          (a) "Insufficient permissions to access customer's packages."
+          (b) "System error, please try again later."
 
-   **Front of the Card:**
-   As an Insurance Agent, I want to create a customized insurance package for a customer so that it meets their specific needs.
+  3. **Front of the Card:**
+      As a Potential Customer, I want to create my own insurance package so that I can tailor it to my specific needs.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Enter customer requirements and choose from available policies.
-       (b) Generate a customized insurance package.
-   - **Failure - Display Message:**
-       (a) "Unable to create package, insufficient information provided."
-       (b) "System error, please try again later."
+      **Back of the Card:**
+      - **Success:**
+          (a) Select available policies based on my requirements.
+          (b) Build and customize my personalized insurance package.
+          (c) Submit my package request for review.
+      - **Failure - Display Message:**
+          (a) "Unable to create a package due to missing required information."
+          (b) "System error, please try again later."
 
-   **Front of the Card:**
-   As a Customer, I want to request a review of my customized insurance package so that it can be validated and priced.
+  4. **Front of the Card:**
+      As a Customer, I want to receive suggestions for my insurance package so that I can make informed decisions.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Send a request for review of the customized package.
-       (b) Receive suggestions, if any, and a competitive price.
-   - **Failure - Display Message:**
-       (a) "Unable to send request, please check your input."
-       (b) "System error, please try again later."
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive suggested improvements or additions to my proposed package.
+          (b) Review and accept/reject the suggestions.
+      - **Failure - Display Message:**
+          (a) "Unable to provide suggestions for your package due to missing information."
+          (b) "System error, please try again later."
 
-   **Front of the Card:**
-   As an Insurance Agent, I want to communicate with the insurer regarding the customized insurance package so that it can be processed efficiently.
+  5. **Front of the Card:**
+      As a Customer, I want to receive a competitive price for my insurance package so that I can make an informed decision.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Send messages related to the package to the insurer.
-       (b) Receive responses from the insurer about the package.
-   - **Failure - Display Message:**
-       (a) "Unable to send message, please check your input."
-       (b) "System error, please try again later."
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive a calculated and competitive price for my proposed package.
+      - **Failure - Display Message:**
+          (a) "Unable to provide a price quote at this time due to missing or invalid information."
+          (b) "System error, please try again later."
 
-   **Front of the Card:**
-   As a Government Regulator, I want to verify that the system adheres to all relevant regulations so that compliance is ensured.
+  6. **Front of the Card:**
+      As an Agent, I want to review and approve customer package requests within set timelines so that I can maintain good relationships with customers.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Conduct system audits and ensure compliance with regulations.
-   - **Failure - Display Message:**
-       (a) "System does not comply with regulations, corrective action required."
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive notifications for new package requests within the set timeline.
+          (b) Approve or reject the request within the specified timeframe.
+      - **Failure - Display Message:**
+          (a) "Package review is overdue, please complete action as soon as possible."
+          (b) "System error, please try again later."
 
-   **Front of the Card:**
-   As a Customer, I want to navigate the system easily so that I can find and use its features intuitively.
+  7. **Front of the Card:**
+      As a Regulatory Body Representative, I want to verify the compliance of our proposed packages so that we can ensure regulatory adherence and prevent penalties.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Navigate through different sections of the system smoothly.
-       (b) Understand and utilize available features without confusion.
-   - **Failure - Display Message:**
-       (a) "Unable to find requested feature, please check our help section."
-       (b) "System navigation error, please try again later."
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive notifications for new package requests for verification.
+          (b) Verify the compliance of the proposed package with regulations.
+      - **Failure - Display Message:**
+          (a) "Package review is currently unavailable due to system maintenance."
+          (b) "Package found non-compliant, please revise and resubmit."
 
-   **Front of the Card:**
-   As a Competitor, I want to monitor the system for potential policy leaks so that confidentiality is maintained.
+  8. **Front of the Card:**
+      As a System Administrator, I want to ensure that the system is available and functioning properly so that all stakeholders can access its services.
 
-   **Back of the Card:**
-   - **Success:**
-       (a) Monitor the system for any signs of policy leakage.
-   - **Failure - Display Message:**
-       (a) "System breach detected, corrective action required."
+      **Back of the Card:**
+      - **Success:**
+          (a) Monitor system performance and availability.
+          (b) Perform regular maintenance and updates as needed.
+      - **Failure - Display Message:**
+          (a) "The system is currently unavailable due to scheduled maintenance."
+          (b) "System error, please try again later."
+
+  9. **Front of the Card:**
+      As a Government Official, I want to access regulatory compliance reports so that I can monitor and enforce industry standards.
+
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive regular compliance reports.
+          (b) Review and analyze the report findings.
+      - **Failure - Display Message:**
+          (a) "Regulatory compliance reports are currently unavailable due to system maintenance."
+          (b) "System error, please try again later."
+
+  10. **Front of the Card:**
+      As a Compliance Officer, I want to receive notifications for non-compliant packages so that we can address issues and maintain regulatory adherence.
+
+      **Back of the Card:**
+      - **Success:**
+          (a) Receive notifications for non-compliant packages.
+          (b) Address the compliance issues and resubmit the package for review.
+      - **Failure - Display Message:**
+          (a) "Regulatory compliance alerts are currently unavailable due to system maintenance."
+          (b) "System error, please try again later."

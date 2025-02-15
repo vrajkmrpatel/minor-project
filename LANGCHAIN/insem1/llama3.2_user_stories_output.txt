@@ -1,107 +1,95 @@
-**Front of the Card:** 
-As a customer, I want to create my own personalized insurance package so that I can tailor coverage to my specific needs.
+Here are the 10 user stories that meet the INVEST criteria:
 
-**Back of the Card:**
-- **Success:**
-    (a) Display available insurance policy options for selection.
-    (b) Allow users to add/drop features and customize package details.
-    (c) Generate a summary of selected packages with total cost.
-- **Failure - Display Message:**
+1. 
+As a customer, I want to create a personalized insurance package so that I can choose a policy that suits my needs.
+
+- Success: 
+    (a) Display available insurance policies and features.
+    (b) Show comparison table with pricing and benefits.
+- Failure - Display Message: 
     (a) "No available insurance policies at the moment, please check later."
     (b) "System error, please try again."
 
-**Front of the Card:** 
-As an insurance agent, I want to receive notifications when a customer requests a package review so that I can promptly assist them.
+2. As an insurance agent, I want to review customer policy requests so that I can assist clients with their insurance needs.
 
-**Back of the Card:**
-- **Success:**
-    (a) Receive email or in-app notification when a request is received.
-    (b) Display user information and package details for review.
-    (c) Allow agents to respond with suggestions or revisions.
-- **Failure - Display Message:**
-    (a) "No new requests available at the moment."
+- Success: 
+    (a) View customer policy request details.
+    (b) Provide feedback or suggestions on the package.
+    (c) Accept or reject the package request.
+- Failure - Display Message: 
+    (a) "Customer policy request not found."
+    (b) "Unauthorized access, please log in as an agent."
+    (c) "System error, please try again later."
+
+3. As a business analyst at NYU, I want to validate customer input so that we can ensure the accuracy of insurance package requests.
+
+- Success: 
+    (a) Validate customer policy request for completeness.
+    (b) Check for inconsistencies in policy requirements.
+    (c) Display error messages for invalid input.
+- Failure - Display Message: 
+    (a) "Invalid policy request, please try again."
+    (b) "System error, please check the user manual."
+
+4. As a customer, I want to view my personalized insurance package so that I can understand what's included and how much it costs.
+
+- Success: 
+    (a) Display package details with features and pricing.
+    (b) Show comparison table with competing policies.
+- Failure - Display Message: 
+    (a) "Package not found, please check later."
+    (b) "System error, please try again."
+
+5. As an insurance agent, I want to generate a new quote for a customer's policy so that I can provide them with more accurate pricing information.
+
+- Success: 
+    (a) Generate a quote based on customer requirements.
+    (b) Display the quote along with package details.
+- Failure - Display Message: 
+    (a) "System error, please try again later."
+    (b) "Insufficient data to generate a quote."
+
+6. As a business analyst at NYU, I want to track system performance so that we can identify areas for improvement.
+
+- Success: 
+    (a) Monitor system uptime and response times.
+    (b) Display real-time analytics on user engagement.
+- Failure - Display Message: 
+    (a) "System error, please try again later."
+    (b) "Insufficient data to display analytics."
+
+7. As an insurance agent, I want to manage customer policy details so that I can provide them with accurate information and updates.
+
+- Success: 
+    (a) Update policy information upon customer request.
+    (b) Display updated policy details for the client.
+- Failure - Display Message: 
+    (a) "Customer policy not found."
+    (b) "Unauthorized access, please log in as an agent."
+
+8. As a customer, I want to compare competing insurance packages so that I can choose the best plan for my needs.
+
+- Success: 
+    (a) Display comparison table with features and pricing.
+    (b) Show package details from different providers.
+- Failure - Display Message: 
+    (a) "No available insurance policies at the moment, please check later."
+    (b) "System error, please try again."
+
+9. As a business analyst at NYU, I want to ensure data security and integrity so that we can protect customer information.
+
+- Success: 
+    (a) Display authentication and authorization protocols.
+    (b) Show encryption methods used in the system.
+- Failure - Display Message: 
+    (a) "Unauthorized access, please log in as a user."
     (b) "System error, please try again later."
 
-**Front of the Card:** 
-As a customer, I want to view my package details and history so that I can track my coverage.
+10. As an insurance agent, I want to receive notifications for customer policy updates so that I can stay informed and provide timely assistance.
 
-**Back of the Card:**
-- **Success:**
-    (a) Display detailed package information, including features and pricing.
-    (b) Show a record of past requests and changes made to the package.
-    (c) Allow users to download or print their package documents.
-- **Failure - Display Message:**
-    (a) "Package details not available at this time."
-    (b) "System error, please try again."
-
-**Front of the Card:** 
-As an insurance agent, I want to generate a new quote based on customer requests so that I can offer tailored solutions.
-
-**Back of the Card:**
-- **Success:**
-    (a) Calculate and display estimated costs for the requested package.
-    (b) Include any discounts or promotions applicable to the user.
-    (c) Provide an option for users to purchase the selected package.
-- **Failure - Display Message:**
+- Success: 
+    (a) Display push notifications for policy updates.
+    (b) Show update history for the client's policy.
+- Failure - Display Message: 
     (a) "System error, please try again later."
-    (b) "Insufficient information to generate a quote."
-
-**Front of the Card:** 
-As a customer, I want to pay for my insurance package securely online so that I can avoid hassle at agent offices.
-
-**Back of the Card:**
-- **Success:**
-    (a) Display secure payment processing options.
-    (b) Allow users to save payment information for future use.
-    (c) Show confirmation of successful payment and package activation.
-- **Failure - Display Message:**
-    (a) "Payment failed, please try again."
-    (b) "System error, please contact support."
-
-**Front of the Card:** 
-As an insurance agent, I want to track policy renewals so that I can ensure timely customer coverage.
-
-**Back of the Card:**
-- **Success:**
-    (a) Receive notifications when a renewal is due.
-    (b) Allow agents to update user information and package details.
-    (c) Display a calendar view of upcoming renewals.
-- **Failure - Display Message:**
-    (a) "Renewal notice not sent."
-    (b) "System error, please try again."
-
-**Front of the Card:** 
-As an insurance company executive, I want to monitor system performance so that I can ensure optimal user experience.
-
-**Back of the Card:**
-- **Success:**
-    (a) Display real-time metrics on system uptime and performance.
-    (b) Allow executives to filter by specific user groups or regions.
-    (c) Provide historical data for trend analysis.
-- **Failure - Display Message:**
-    (a) "System error, please contact support."
-    (b) "Performance metrics not available at this time."
-
-**Front of the Card:** 
-As a customer, I want to receive automated package updates so that I can stay informed about changes.
-
-**Back of the Card:**
-- **Success:**
-    (a) Display push notifications with update summaries.
-    (b) Allow users to select preferred notification channels.
-    (c) Provide an option to view detailed package information.
-- **Failure - Display Message:**
-    (a) "Update not received."
-    (b) "System error, please try again."
-
-**Front of the Card:** 
-As a customer, I want to be able to edit my package details myself so that I can customize coverage.
-
-**Back of the Card:**
-- **Success:**
-    (a) Allow users to make changes to selected features and pricing.
-    (b) Validate user input for accuracy and consistency.
-    (c) Display a summary of updated package costs and details.
-- **Failure - Display Message:**
-    (a) "Invalid input, please try again."
-    (b) "System error, please contact support."
+    (b) "Insufficient data to display notifications."
