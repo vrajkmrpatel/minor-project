@@ -1,0 +1,27 @@
+Model: gemini-pro
+==================================
+1️⃣ **Stakeholders:**
+🔹 **Primary:**
+    - NYU executives
+    - Retinodes software engineers
+    - Insurance agents
+    - Customers
+🔹 **Secondary:**
+    - Insurance regulators
+    - Competing insurance companies
+
+2️⃣ **End-users:**
+🔹 Insurance agents
+🔹 Customers
+
+3️⃣ **Functional Requirements:**
+🔹 System enables creation of personalized insurance packages by customers.
+🔹 System analyzes and provides suggestions on customer-created packages.
+🔹 System provides competitive pricing for customer-created packages.
+
+4️⃣ **Non-functional Requirements:**
+🔹 **Performance:** High availability (99.9% uptime)
+🔹 **Security:** Data security and encryption
+🔹 **Usability:** Intuitive user interface and easy navigation
+🔹 **Reliability:** System must be robust and minimize downtime
+🔹 **Scalability:** Ability to handle increasing user base and data volumes

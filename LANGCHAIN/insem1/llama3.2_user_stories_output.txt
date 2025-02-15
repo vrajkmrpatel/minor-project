@@ -1,0 +1,107 @@
+**Front of the Card:** 
+As a customer, I want to create my own personalized insurance package so that I can tailor coverage to my specific needs.
+
+**Back of the Card:**
+- **Success:**
+    (a) Display available insurance policy options for selection.
+    (b) Allow users to add/drop features and customize package details.
+    (c) Generate a summary of selected packages with total cost.
+- **Failure - Display Message:**
+    (a) "No available insurance policies at the moment, please check later."
+    (b) "System error, please try again."
+
+**Front of the Card:** 
+As an insurance agent, I want to receive notifications when a customer requests a package review so that I can promptly assist them.
+
+**Back of the Card:**
+- **Success:**
+    (a) Receive email or in-app notification when a request is received.
+    (b) Display user information and package details for review.
+    (c) Allow agents to respond with suggestions or revisions.
+- **Failure - Display Message:**
+    (a) "No new requests available at the moment."
+    (b) "System error, please try again later."
+
+**Front of the Card:** 
+As a customer, I want to view my package details and history so that I can track my coverage.
+
+**Back of the Card:**
+- **Success:**
+    (a) Display detailed package information, including features and pricing.
+    (b) Show a record of past requests and changes made to the package.
+    (c) Allow users to download or print their package documents.
+- **Failure - Display Message:**
+    (a) "Package details not available at this time."
+    (b) "System error, please try again."
+
+**Front of the Card:** 
+As an insurance agent, I want to generate a new quote based on customer requests so that I can offer tailored solutions.
+
+**Back of the Card:**
+- **Success:**
+    (a) Calculate and display estimated costs for the requested package.
+    (b) Include any discounts or promotions applicable to the user.
+    (c) Provide an option for users to purchase the selected package.
+- **Failure - Display Message:**
+    (a) "System error, please try again later."
+    (b) "Insufficient information to generate a quote."
+
+**Front of the Card:** 
+As a customer, I want to pay for my insurance package securely online so that I can avoid hassle at agent offices.
+
+**Back of the Card:**
+- **Success:**
+    (a) Display secure payment processing options.
+    (b) Allow users to save payment information for future use.
+    (c) Show confirmation of successful payment and package activation.
+- **Failure - Display Message:**
+    (a) "Payment failed, please try again."
+    (b) "System error, please contact support."
+
+**Front of the Card:** 
+As an insurance agent, I want to track policy renewals so that I can ensure timely customer coverage.
+
+**Back of the Card:**
+- **Success:**
+    (a) Receive notifications when a renewal is due.
+    (b) Allow agents to update user information and package details.
+    (c) Display a calendar view of upcoming renewals.
+- **Failure - Display Message:**
+    (a) "Renewal notice not sent."
+    (b) "System error, please try again."
+
+**Front of the Card:** 
+As an insurance company executive, I want to monitor system performance so that I can ensure optimal user experience.
+
+**Back of the Card:**
+- **Success:**
+    (a) Display real-time metrics on system uptime and performance.
+    (b) Allow executives to filter by specific user groups or regions.
+    (c) Provide historical data for trend analysis.
+- **Failure - Display Message:**
+    (a) "System error, please contact support."
+    (b) "Performance metrics not available at this time."
+
+**Front of the Card:** 
+As a customer, I want to receive automated package updates so that I can stay informed about changes.
+
+**Back of the Card:**
+- **Success:**
+    (a) Display push notifications with update summaries.
+    (b) Allow users to select preferred notification channels.
+    (c) Provide an option to view detailed package information.
+- **Failure - Display Message:**
+    (a) "Update not received."
+    (b) "System error, please try again."
+
+**Front of the Card:** 
+As a customer, I want to be able to edit my package details myself so that I can customize coverage.
+
+**Back of the Card:**
+- **Success:**
+    (a) Allow users to make changes to selected features and pricing.
+    (b) Validate user input for accuracy and consistency.
+    (c) Display a summary of updated package costs and details.
+- **Failure - Display Message:**
+    (a) "Invalid input, please try again."
+    (b) "System error, please contact support."

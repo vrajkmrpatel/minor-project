@@ -1,0 +1,25 @@
+Model: mistral
+==================================
+1️⃣ **Primary Stakeholders:**
+   - NYU Insurance Company Executives
+   - Business Analysts at Retinodes Software Company
+   - Insurance Agents (representing both companies)
+
+2️⃣ **Secondary Stakeholders:**
+   - Government Regulators in the insurance industry
+   - Competitors in the insurance market
+   - Potential customers of NYU and other insurance firms
+
+3️⃣ **Functional Requirements:**
+   - The system should allow customers to create customized insurance packages.
+   - The system should automatically analyze these created packages and suggest improvements if necessary.
+   - The system should provide a competitive price for the customized package.
+   - The system should facilitate communication between agents and insurers, streamlining the agent-insurer relationship.
+   - The system should offer consolidated insurance packages that can compete with those provided by other insurance companies.
+
+4️⃣ **Non-functional Requirements:**
+   - The system should provide high availability with a target of 99.9% uptime to ensure smooth customer experience.
+   - The system should adhere to all relevant government regulations and industry standards in the insurance sector.
+   - The system should prioritize security, ensuring that sensitive user and financial data is protected at all times.
+   - The system should have an intuitive user interface, making it easy for both agents and customers to navigate and interact with it.
+   - The system should be scalable, allowing for the addition of new features and expansion into other insurance markets as needed.

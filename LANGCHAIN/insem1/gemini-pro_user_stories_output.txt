@@ -1,0 +1,109 @@
+**Front of the Card:**  
+*As a customer, I want to create a personalized insurance package that meets my specific needs and budget.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System allows me to select coverage options and customize the package.  
+    (b) System provides real-time pricing based on my selections.  
+- **Failure - Display Message:**  
+    (a) "Selected coverage combinations are not available."  
+    (b) "System error, please try again."
+
+**Front of the Card:**  
+*As an insurance agent, I want to analyze and provide suggestions on customer-created packages.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System provides feedback on coverage adequacy and potential risks.  
+    (b) System suggests alternative coverage options to enhance protection.  
+- **Failure - Display Message:**  
+    (a) "System cannot analyze the package, please contact support."  
+    (b) "Insufficient data to provide suggestions."
+
+**Front of the Card:**  
+*As a customer, I want to receive competitive pricing for my personalized insurance package.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System compares pricing from multiple insurers and displays competitive options.  
+    (b) System provides discounts and promotions based on eligibility.  
+- **Failure - Display Message:**  
+    (a) "Unable to fetch quotes from insurers, please try again later."  
+    (b) "Customer not eligible for the selected discounts."
+
+**Front of the Card:**  
+*As an insurance agent, I want to quickly and easily create insurance policies for my clients.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System auto-populates customer information from existing records.  
+    (b) System generates policy documents with customizable coverage options.  
+- **Failure - Display Message:**  
+    (a) "Customer information not found, please verify details."  
+    (b) "Policy creation failed, please contact support."
+
+**Front of the Card:**  
+*As a customer, I want to access my policy information and make changes online.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System displays policy details, coverage, and payment history.  
+    (b) System allows me to update personal information and billing details.  
+- **Failure - Display Message:**  
+    (a) "Customer policy not found, please contact your agent."  
+    (b) "Unauthorized access, please log in to your account."
+
+**Front of the Card:**  
+*As an insurance regulator, I want to ensure compliance with insurance regulations and protection of consumer interests.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System records and tracks all insurance policies and transactions.  
+    (b) System provides reports and data for regulatory audits and investigations.  
+- **Failure - Display Message:**  
+    (a) "Data integrity violation, please contact support."  
+    (b) "Insufficient data for reporting requirements."
+
+**Front of the Card:**  
+*As an insurance agent, I want to access real-time customer data to provide personalized insurance solutions.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System integrates with CRM systems to provide customer profiles and history.  
+    (b) System provides insights and recommendations based on customer behavior and preferences.  
+- **Failure - Display Message:**  
+    (a) "Customer data not available, please try again later."  
+    (b) "Integration error, please contact IT support."
+
+**Front of the Card:**  
+*As a customer, I want to pay my insurance premiums online securely and easily.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System supports multiple payment methods and ensures data security.  
+    (b) System provides electronic receipts and confirmation emails.  
+- **Failure - Display Message:**  
+    (a) "Payment declined, please verify your payment information."  
+    (b) "System error, please try again later."
+
+**Front of the Card:**  
+*As an insurance agent, I want to receive notifications and alerts on important customer events.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System sends email or push notifications for policy renewals, upcoming payments, and claims updates.  
+    (b) System provides customizable notification settings to ensure timely responses.  
+- **Failure - Display Message:**  
+    (a) "Notification service unavailable, please contact support."  
+    (b) "Notification delivery failed, please check recipient's email or device."
+
+**Front of the Card:**  
+*As a competing insurance company, I want to monitor and analyze the performance of our competitors.*  
+
+**Back of the Card:**  
+- **Success:**  
+    (a) System provides data on market share, customer acquisition, and product offerings.  
+    (b) System generates reports and insights for competitive analysis and strategy development.  
+- **Failure - Display Message:**  
+    (a) "Data collection error, please contact support."  
+    (b) "Insufficient data for meaningful analysis."

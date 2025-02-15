@@ -1,0 +1,83 @@
+1. **Front of the Card:**
+   As a NYU Insurance Executive, I want to review and approve the consolidated insurance packages so that they can be offered to customers.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Receive consolidated packages for review.
+       (b) Approve or reject the packages based on market demand and internal policies.
+   - **Failure - Display Message:**
+       (a) "Package not ready for review, please check later."
+       (b) "Package does not meet internal policies, request rejection."
+
+   **Front of the Card:**
+   As a Business Analyst at Retinodes Software Company, I want to update insurance policy details so that they are reflected in the system.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Edit and save changes to the insurance policy details.
+       (b) Update the policy information in the system.
+   - **Failure - Display Message:**
+       (a) "Unable to edit policy, insufficient permissions."
+       (b) "System error, please try again later."
+
+   **Front of the Card:**
+   As an Insurance Agent, I want to create a customized insurance package for a customer so that it meets their specific needs.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Enter customer requirements and choose from available policies.
+       (b) Generate a customized insurance package.
+   - **Failure - Display Message:**
+       (a) "Unable to create package, insufficient information provided."
+       (b) "System error, please try again later."
+
+   **Front of the Card:**
+   As a Customer, I want to request a review of my customized insurance package so that it can be validated and priced.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Send a request for review of the customized package.
+       (b) Receive suggestions, if any, and a competitive price.
+   - **Failure - Display Message:**
+       (a) "Unable to send request, please check your input."
+       (b) "System error, please try again later."
+
+   **Front of the Card:**
+   As an Insurance Agent, I want to communicate with the insurer regarding the customized insurance package so that it can be processed efficiently.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Send messages related to the package to the insurer.
+       (b) Receive responses from the insurer about the package.
+   - **Failure - Display Message:**
+       (a) "Unable to send message, please check your input."
+       (b) "System error, please try again later."
+
+   **Front of the Card:**
+   As a Government Regulator, I want to verify that the system adheres to all relevant regulations so that compliance is ensured.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Conduct system audits and ensure compliance with regulations.
+   - **Failure - Display Message:**
+       (a) "System does not comply with regulations, corrective action required."
+
+   **Front of the Card:**
+   As a Customer, I want to navigate the system easily so that I can find and use its features intuitively.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Navigate through different sections of the system smoothly.
+       (b) Understand and utilize available features without confusion.
+   - **Failure - Display Message:**
+       (a) "Unable to find requested feature, please check our help section."
+       (b) "System navigation error, please try again later."
+
+   **Front of the Card:**
+   As a Competitor, I want to monitor the system for potential policy leaks so that confidentiality is maintained.
+
+   **Back of the Card:**
+   - **Success:**
+       (a) Monitor the system for any signs of policy leakage.
+   - **Failure - Display Message:**
+       (a) "System breach detected, corrective action required."

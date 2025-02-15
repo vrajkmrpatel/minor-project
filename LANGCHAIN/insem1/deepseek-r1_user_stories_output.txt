@@ -1,0 +1,76 @@
+<think>
+Okay, so I'm trying to figure out how to approach this problem where I need to create requirements for a Market-Driven Insurance System project at Retinodes Software Company. The goal is to helpNYU develop a solution that can compete with other insurance companies by providing consolidated packages based on customer priorities and automatically analyzing these packages. Let me break it down step by step.
+
+First, I think about the stakeholders. They're directly involved in the system's development, like insurance executives, business analysts, and maybe some regulatory bodies. These people will have the most control over how the system works and can influence its direction.
+
+Next, the end-users. The main ones are insurance agents, customers, businesses, government regulators, and potential competitors or suppliers. Each of these groups has different roles in using the system. For example, agents need to manage policies based on customer needs, customers might want a user-friendly interface, while businesses could be considering new markets.
+
+Now, thinking about functional requirements. The main features this system should have are: data entry for agents, analysis suggestions when they review packages, automatic analysis of existing ones, price suggestion system, and competitive pricing. These are the core functionalities that the system needs to handle to compete with other insurance companies.
+
+Non-functional requirements focus on how the system should behave. Performance is important because it will be used by multiple insurancers across different regions. Security must protect sensitive customer data. Scalability ensures the system can grow as the market expands. Usability means the system needs to be easy for both agents and customers to use.
+
+I also need to make sure each requirement is clear and aligned with how NYU wants their system to work. I should consider any ambiguities, like potential competitors or suppliers, which might affect pricing or functionality. Maybe include a note about price competition since NYU wants to offer better prices than others.
+
+Putting it all together, I'll list the stakeholders first, then end-users, followed by functional and non-functional requirements. Each section will be clear and concise, ensuring everyone is on the same page before moving forward with development.
+</think>
+
+### Structured Output
+
+1. **Primary Stakeholders:**
+   - Insurance Company Executives
+   - Business Analysts
+   - Regulatory Bodies (Government)
+
+2. **Secondary Stakeholders:**
+   - Customer Support Team
+   - Legal and Compliance Experts
+   - Marketing Team
+   - Data Analytics specialists
+
+3. **End Users:**
+   - Insurance Agents
+   - Customers
+   - Businesses
+   - Government Regulators
+   - Potential Competitors
+
+4. **Functional Requirements:**
+   - **Core Functionality:**
+     - **Data Entry for Agents:** Accurately enter customer information based on their needs.
+     - **Analysis Suggestions:** Generate tailored recommendations from agents upon request.
+     - **Automatic Package Analysis:** Identify and analyze potential packages in real-time.
+     - **Price Suggestion System:** Propose competitive pricing suggestions for customers.
+     - **Competitive Pricing Mechanism:** Compare prices across different insurance providers.
+
+5. **Non-Functional Requirements:**
+   - **Performance:** High availability (99.9%) to ensure robust reliability.
+   - **Security:** Encrypt data and implement secure communication channels.
+   - **Scalability:** Adaptable to grow with market expansion.
+   - **Usability:** User-friendly interface for both agents and customers.
+
+**Guidelines:**
+- Generate user stories that are Independent, Negotiable, Valuable, Estimable, Small, and Testable (INVEST).
+- Use the format:
+  ```
+  Front of the Card:
+     As a [role], I want to [action] so that [benefit].
+  Back of the Card:
+     - **Success:** Display available insurance packages from different providers.
+     - **Failure - Display Message:** "No available insurance packages at the moment, please check later."
+  ```
+  
+**Examples:**
+
+- Front of the Card:
+  As a customer, I want to browse and compare insurance packages so that I can choose the best plan for my needs.
+
+  Back of the Card:
+  - **Success:** Display available insurance packages from different providers.
+  - **Failure - Display Message:** "Customer policy not found."
+
+- Front of the Card:
+  As an insurance agent, I want to manage customer policies based on their requirements.
+
+  Back of the Card:
+  - **Success:** View and update customer details upon request.
+  - **Failure - Display Message:** "Unauthorized access, please log in as an agent."
