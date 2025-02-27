@@ -1,0 +1,59 @@
+After analyzing the user stories and requirements for the insurance company's digital platform, I've identified three EPICs with conflicting user stories:
+
+**EPIC 1: Policy Pricing vs. Customer Expectations**
+
+* Conflicting User Stories:
+	+ As a customer, I want to receive personalized quotes based on my specific needs (User Story #5).
+	+ As NYU Management, I want to ensure that our pricing is competitive and aligns with industry standards (User Story #9).
+
+**Conflict:**
+The conflict arises from the tension between providing customers with tailored quotes and ensuring that prices remain competitive in the market. NYU Management wants to maintain a level of standardization in pricing to simplify operations, while customers expect personalized quotes to ensure they're getting the best value for their money.
+
+**Resolution Strategy:**
+
+✅ **Price Range Calculation:** 
+- Develop an algorithm that calculates a price range based on industry standards and customer requirements.
+- Present this range to the customer, allowing them to adjust within those parameters.
+
+✅ **Dynamic Pricing Adjustments:** 
+- Implement a system that allows NYU Management to make adjustments to pricing on the fly, while maintaining transparency with customers.
+- Consider factors like market trends, competition, and customer behavior when making price changes.
+
+**EPIC 2: Customer Service vs. Business Efficiency**
+
+* Conflicting User Stories:
+	+ As an insurance agent, I want to receive real-time notifications for policy updates (User Story #10).
+	+ As NYU Management, I want to minimize the number of interactions with customers through automation and streamlined processes (User Story #6).
+
+**Conflict:**
+The conflict between providing timely customer service and maintaining business efficiency creates tension. While agents value real-time updates to ensure seamless client experiences, management prioritizes reducing unnecessary interactions to streamline operations.
+
+**Resolution Strategy:**
+
+✅ **Automated Notification Thresholds:** 
+- Establish thresholds for when automated notifications are sufficient versus when human intervention is required.
+- Use AI-driven analytics to determine the best balance between automation and customer engagement.
+
+✅ **Proactive Agent Engagement:** 
+- Implement a system that proactively engages agents with customers, such as sending targeted messages or making initial contact via phone or email.
+- Provide clear guidelines for agents on when to escalate issues to management.
+
+**EPIC 3: Data Security vs. Customer Access**
+
+* Conflicting User Stories:
+	+ As a customer, I want to view my personalized insurance package details (User Story #4).
+	+ As NYU Management, I want to ensure that sensitive data is protected from unauthorized access and breaches (User Story #9).
+
+**Conflict:**
+The conflict between providing customers with convenient access to their personal data and safeguarding against data breaches creates a challenge. While customers value transparency and control over their information, management prioritizes protecting sensitive data.
+
+**Resolution Strategy:**
+
+✅ **Data Access Controls:** 
+- Implement role-based access controls that restrict customer view-only permissions for sensitive data.
+- Provide clear explanations of why certain data points are restricted and how they're used to support the business.
+
+✅ **Biometric Authentication:** 
+- Explore the use of biometric authentication methods, such as facial recognition or fingerprint scanning, to enhance security measures without compromising user experience.
+
+These EPICs highlight potential conflicts between competing requirements. By analyzing these conflicts and proposing resolution strategies, we can create a more cohesive digital platform that balances customer needs with business efficiency and data security.

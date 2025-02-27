@@ -1,0 +1,109 @@
+**User Story 1:**  
+**Front of the Card:**  
+As an NYU Executive, I want to provide a competitive and comprehensive insurance solution to increase market share.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Consolidated insurance packages are created and offered to customers.  
+    (b) Customer personalization feature is added to the system.  
+- **Failure - Display Message:**  
+    (a) "System error, please try again later."  
+    (b) "Unauthorized access, please log in as an NYU Executive."  
+
+**User Story 2:**  
+**Front of the Card:**  
+As an Insurance Company Executive, I want to ensure compliance with regulatory requirements to avoid legal penalties.  
+**Back of the Card:**  
+- **Success:**  
+    (a) System complies with all applicable regulations.  
+    (b) Compliance audits are passed without any issues.  
+- **Failure - Display Message:**  
+    (a) "System does not meet regulatory requirements."  
+    (b) "Audit failure, please rectify the deficiencies."  
+
+**User Story 3:**  
+**Front of the Card:**  
+As a Business Analyst, I want to define functional requirements that meet business needs.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Functional requirements are documented and agreed upon by all stakeholders.  
+    (b) User stories are clear and concise.  
+- **Failure - Display Message:**  
+    (a) "Requirements incomplete or unclear."  
+    (b) "User stories do not meet business objectives."  
+
+**User Story 4:**  
+**Front of the Card:**  
+As a Retinodes Development Team member, I want to develop a secure and scalable system.  
+**Back of the Card:**  
+- **Success:**  
+    (a) System is secure from unauthorized access and data breaches.  
+    (b) System can handle a large number of users and policies.  
+- **Failure - Display Message:**  
+    (a) "Security breach detected, please take immediate action."  
+    (b) "System performance issues, please investigate."  
+
+**User Story 5:**  
+**Front of the Card:**  
+As a Competing Insurance Firm, I want to monitor the market and identify new features to offer.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Market trends and competitors' offerings are analyzed regularly.  
+    (b) New features are identified and implemented to stay competitive.  
+- **Failure - Display Message:**  
+    (a) "Market research data outdated."  
+    (b) "New features not successful, please revise."  
+
+**User Story 6:**  
+**Front of the Card:**  
+As an Insurance Agent, I want to create and manage consolidated insurance packages for my clients.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Consolidated packages are created and presented to clients.  
+    (b) Policy details and billing information are updated accurately.  
+- **Failure - Display Message:**  
+    (a) "Package creation failed, please check your inputs."  
+    (b) "Unauthorized access, please log in as an agent."  
+
+**User Story 7:**  
+**Front of the Card:**  
+As an Insurance Customer, I want to create a personalized insurance package that meets my specific needs.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Personalized package is created based on customer's preferences.  
+    (b) System generates a quote and policy details.  
+- **Failure - Display Message:**  
+    (a) "Package requirements not met, please revise."  
+    (b) "Policy details incomplete, please provide all information."  
+
+**User Story 8:**  
+**Front of the Card:**  
+As a Government Regulator, I want to ensure that the system complies with industry standards and regulations.  
+**Back of the Card:**  
+- **Success:**  
+    (a) System is certified and approved by regulatory authorities.  
+    (b) Audit trails and compliance logs are maintained.  
+- **Failure - Display Message:**  
+    (a) "Compliance issues detected, please rectify."  
+    (b) "System does not meet industry standards."  
+
+**User Story 9:**  
+**Front of the Card:**  
+As a Retinodes Project Manager, I want to track the progress of the project and ensure timely delivery.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Project milestones are achieved on schedule.  
+    (b) Communication with stakeholders is clear and effective.  
+- **Failure - Display Message:**  
+    (a) "Project timeline delayed, please revise."  
+    (b) "Communication issues, please improve."  
+
+**User Story 10:**  
+**Front of the Card:**  
+As a System Tester, I want to identify and fix bugs and ensure the stability of the system.  
+**Back of the Card:**  
+- **Success:**  
+    (a) Bugs and errors are detected and resolved.  
+    (b) System is stable and performs as expected.  
+- **Failure - Display Message:**  
+    (a) "Critical bug detected, please fix immediately."  
+    (b) "System performance issues, please investigate."

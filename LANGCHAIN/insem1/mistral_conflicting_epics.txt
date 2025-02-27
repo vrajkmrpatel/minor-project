@@ -1,0 +1,41 @@
+1. **EPIC: User Authentication vs. Data Security**
+   **Conflicting User Stories:**
+   - As an Insurance Agent, I want to access and manage my customer's packages easily so that I can efficiently assist them.
+   - As a System Administrator, I want to ensure that the system is secure and protected from unauthorized access.
+
+    **Conflict:**
+    - Agents need easy access, but security requires strong authentication measures to protect sensitive data.
+
+    **Resolution Strategy:**
+    ✅ **Multi-Factor Authentication (MFA):**
+      - Implement MFA for all user logins to ensure secure access.
+      - Use a combination of passwords, security tokens, and biometrics for verification.
+      - Allow agents to choose the preferred method of authentication while still maintaining the necessary level of security.
+
+  2. **EPIC: User Experience vs. Regulatory Compliance**
+   **Conflicting User Stories:**
+   - As a Customer, I want an intuitive and easy-to-use interface for managing my insurance packages.
+   - As a Regulatory Body Representative, I want to verify the compliance of our proposed packages to ensure regulatory adherence and prevent penalties.
+
+    **Conflict:**
+    - Users desire a simple interface, but regulations require complex information and validation processes.
+
+    **Resolution Strategy:**
+    ✅ **Regulatory Compliance UI/UX Design:**
+      - Simplify the presentation of regulatory information while maintaining its accuracy.
+      - Provide clear explanations for regulatory requirements during user onboarding.
+      - Use intuitive design principles to guide users through compliance-related steps, minimizing confusion and frustration.
+
+  3. **EPIC: Real-time Updates vs. System Performance**
+   **Conflicting User Stories:**
+   - As a Compliance Officer, I want real-time notifications for non-compliant packages so that we can address issues promptly.
+   - As a System Administrator, I want to ensure the system's performance is optimized and stable for all users.
+
+    **Conflict:**
+    - Real-time updates require frequent data processing, potentially affecting system performance.
+
+    **Resolution Strategy:**
+    ✅ **Optimized Data Processing & Notifications:**
+      - Use efficient data structures and algorithms to process large amounts of data quickly.
+      - Implement caching mechanisms to reduce the load on the server during high-traffic periods.
+      - Prioritize notifications based on their importance, sending time-critical alerts first and less urgent updates later to ensure system stability.
