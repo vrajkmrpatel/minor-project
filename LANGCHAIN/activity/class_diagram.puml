@@ -1,0 +1,48 @@
+**PlantUML Script:**  
+```plantuml
+@startuml
+class Airline {
+    - id: String
+    - aircrafts: List<Aircraft>
+    - pilots: List<Pilot>
+    + operateFlight(Flight): void
+}
+
+class Flight {
+    - id: String
+    - departureAirport: String
+    - arrivalAirport: String
+    - departureTime: Time
+    - arrivalTime: Time
+    - pilot: Pilot
+    - coPilot: Pilot
+    - aircraft: Aircraft
+    + scheduleFlight(): void
+    + updateFlightStatus(): void
+}
+
+class Aircraft {
+    - id: String
+    - type: String
+    - status: String
+    - location: String
+    + updateStatus(): void
+    + updateLocation(): void
+}
+
+class Pilot {
+    - id: String
+    - experienceLevel: Integer
+    - role: String
+    + updateExperienceLevel(): void
+    + assignRole(): void
+}
+
+Airline "1" -- "*" Flight
+Flight "1" -- "1" Pilot
+Flight "1" -- "1" Aircraft
+Airline "1" -- "*" Aircraft
+Airline "1" -- "*" Pilot
+@enduml
+```
+This script represents the classes Airline, Flight, Aircraft, and Pilot with their respective attributes and methods. The relationships between these classes are also depicted.
