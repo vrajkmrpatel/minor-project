@@ -16,7 +16,6 @@ class Ticket {
   price
   departureTime
   date
-  time
   validFrom
   validTill
   validityDuration
@@ -70,20 +69,17 @@ class TouchScreen {
   size
 }
 
-TicketDistributor *-- Ticket : TicketDistributor
-TicketDistributor --> MetroPass : TicketDistributor
-TicketDistributor --> TimeCard : TicketDistributor
-TicketDistributor *-- Transaction : TicketDistributor
-TicketDistributor --> PaymentMethod : TicketDistributor
-TicketDistributor --> CurrencyNote : TicketDistributor
-TicketDistributor *-- DisplayInterface : TicketDistributor
-TicketDistributor *-- TouchScreen : TicketDistributor
-TicketDistributor --> Error : TicketDistributor
-TicketDistributor --> ErrorMessage : TicketDistributor
-Passenger --> Ticket : Passenger
-Passenger --> MetroPass : Passenger
-Passenger --> TimeCard : Passenger
-Transaction --> PaymentMethod : Transaction
-Error *-- ErrorMessage : An
+TicketDistributor *-- Ticket : The TicketDistributor issues and manages Tickets; Tickets cannot exist independently without the distributor.
+TicketDistributor --> MetroPass : The TicketDistributor reads and processes MetroPasses.
+TicketDistributor --> TimeCard : The TicketDistributor reads and processes TimeCards.
+TicketDistributor *-- Transaction : The TicketDistributor creates and manages Transactions; Transactions are intrinsically tied to the distributor.
+TicketDistributor *-- DisplayInterface : The TicketDistributor uses a DisplayInterface; the interface is part of the distributor and cannot exist independently.
+TicketDistributor --> PaymentMethod : The TicketDistributor processes various PaymentMethods.
+TicketDistributor --> CurrencyNote : The TicketDistributor recognizes and processes CurrencyNotes.
+TicketDistributor --> Error : The TicketDistributor handles and reports Errors.
+TicketDistributor *-- TouchScreen : The TicketDistributor uses a TouchScreen; the touchscreen is an integral part of the distributor.
+TicketDistributor --> Passenger : The TicketDistributor serves Passengers.
+Transaction --> PaymentMethod : A Transaction uses a PaymentMethod.
+Error *-- ErrorMessage : An Error contains an ErrorMessage; the message is inseparable from the error.
 
 @enduml
