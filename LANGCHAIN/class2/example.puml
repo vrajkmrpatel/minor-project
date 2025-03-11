@@ -1,0 +1,139 @@
+@startuml
+
+class User {
+    - name: String
+    - contactNumber: String
+    - age: int
+    + getName(): String
+    + getContactNumber(): String
+    + getAge(): int
+    + setContactNumber(String): void
+    + setAge(int): void
+}
+
+abstract class PaymentMethod {
+    + acceptPayment(): void
+}
+
+class Cash {
+    + acceptCashPayment(): void
+}
+
+class CreditDebitCard {
+    + acceptCreditDebitCardPayment(): void
+}
+
+class Smartcard {
+    + acceptSmartcardPayment(): void
+}
+
+PaymentMethod <|-- Cash
+PaymentMethod <|-- CreditDebitCard
+PaymentMethod <|-- Smartcard
+
+abstract class Ticket {
+    - ticketType: String
+    - quantity: int
+    - cost: double
+    + calculateCost(): void
+}
+
+class SingleTripTicket {
+    + calculateSingleTripCost(): double
+}
+
+class RoundTripTicket {
+    + calculateRoundTripCost(): double
+}
+
+class MultiTripTicket {
+    + calculateMultiTripCost(): double
+}
+
+Ticket <|-- SingleTripTicket
+Ticket <|-- RoundTripTicket
+Ticket <|-- MultiTripTicket
+
+class MetroPass {
+    - type: String
+    - validityPeriod: String
+    + isValidMetroPass(): Boolean
+}
+
+class TimeCard {
+    - type: String
+    - validityPeriod: String
+    + isValidTimeCard(): Boolean
+}
+
+class Transaction {
+    - user: User
+    - tickets: Ticket[]
+    - paymentMethod: PaymentMethod
+    - dateTime: String
+    + getUser(): User
+    + getTickets(): List<Ticket>
+    + getPaymentMethod(): PaymentMethod
+    + getDateAndTime(): String
+}
+
+abstract class CurrencyNoteReader {
+    + readCurrencyNote(): void
+}
+
+class OriginalCurrencyNoteReader {
+    + readOriginalCurrencyNote(): void
+}
+
+class FakeCurrencyNoteReader {
+    + readFakeCurrencyNote(): void
+}
+
+CurrencyNoteReader <|-- OriginalCurrencyNoteReader
+CurrencyNoteReader <|-- FakeCurrencyNoteReader
+
+class TicketDistributorMachine {
+    - touchScreenInterface: Boolean
+    - heavyComponents: Boolean
+    + hasTouchScreenInterface(): Boolean
+    + isHeavyComponentsPresent(): Boolean
+}
+
+abstract class DiscountCalculator {
+    + calculateDiscount(): void
+}
+
+class FrequentTravelerDiscountCalculator {
+    + calculateDiscountForFrequentTraveller(): void
+}
+
+DiscountCalculator <|-- FrequentTravelerDiscountCalculator
+
+class MessagingService {
+    + sendMessage(): void
+}
+
+class TransactionLogger {
+    + logTransaction(): void
+}
+
+' =================== Relationships ===================
+User "1" -- "many" Transaction : initiates
+Transaction "1" -- "many" Ticket : includes
+Transaction "1" -- "1" PaymentMethod : uses
+Transaction -- TransactionLogger : logs >
+Transaction -- MessagingService : notifies >
+MessagingService -- User : communicates >
+
+TicketDistributorMachine -- CurrencyNoteReader : contains >
+TicketDistributorMachine -- PaymentMethod : accepts >
+TicketDistributorMachine -- Ticket : dispenses >
+TicketDistributorMachine -- MetroPass : issues >
+TicketDistributorMachine -- TimeCard : issues >
+
+MetroPass "1" -- "1" User : assigned to >
+TimeCard "1" -- "1" User : assigned to >
+Ticket -- DiscountCalculator : applies >
+TransactionLogger -- Transaction : records >
+
+@enduml

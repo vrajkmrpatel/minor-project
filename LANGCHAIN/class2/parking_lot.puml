@@ -1,0 +1,60 @@
+@startuml
+
+class Administrator {
+  + ID
+  + Type
+  + Status
+  + addParkingLot()
+  + removeParkingLot()
+  + analyseUsage()
+  + setPrice()
+}
+
+class User {
+  + ID
+  + Type
+  + Status
+  + estimateCharge()
+  + confirmEntry()
+  + payCharges()
+  + getTotalCharge()
+}
+
+class ParkingLotOwner {
+  + Name
+  + ID
+  + Type
+  + Status
+  + setPrices()
+  + allowDynamicPricing()
+}
+
+class ParkingLot {
+  + Name
+  + ID
+  + Type
+  + Status
+}
+
+class PaymentGateway {
+  + Name
+  + ID
+  + Type
+  + Status
+  + processPayment()
+}
+
+class Error {
+  + Type
+}
+
+ParkingLotOwner <|-- Administrator : is a subclass of
+ParkingLotOwner "*" --> "*" User : owns
+ParkingLotOwner "1" o-- "1" ParkingLot : has
+ParkingLot "*" --> "*" User : is used by
+PaymentGateway "1" --> "1" User : used by
+Administrator "0..1" o-- "0..1" ParkingLotOwner : manages
+User "*" --> "*" PaymentGateway : uses
+ParkingLotOwner "1" *-- "1" Error : can create
+
+@enduml

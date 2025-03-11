@@ -1,85 +1,103 @@
 @startuml
 
 class TicketDistributor {
-  ID
+  + type
+  + status
+  + issueTicket()
+  + issueMetroPass()
+  + issueTimeCard()
+  + readMetroPass()
+  + readTimeCard()
+  + processPayment()
+  + dispenseTicket()
+  + returnChange()
+  + returnMoney()
+  + displayErrorMessage()
+  + abortTransaction()
+  + handleIncompleteTransaction()
+  + handleInsufficientFunds()
 }
 
 class Passenger {
-  ID
-  type
-  isFrequentTraveler
+  + type
+  + ID
+  + frequent_traveller_status
+  + selectTicketType()
+  + selectPaymentMethod()
+  + providePayment()
 }
 
 class Ticket {
-  ID
-  type
-  price
-  departureTime
-  date
-  validFrom
-  validTill
-  validityDuration
-  issuedFrom
-  destinationStation
+  + type
+  + quantity
+  + price
+  + departure_time
+  + date
+  + time
+  + valid_from
+  + valid_till
+  + validity_duration
+  + ticket_issued_from
+  + destination_station
+  + updateInformation()
 }
 
 class MetroPass {
-  ID
-  type
-  validityDuration
+  + type
+  + ID
+  + validity_duration
 }
 
 class TimeCard {
-  ID
-  type
-  validityDuration
+  + type
+  + validity_duration
+}
+
+class Payment {
+  + method
+  + amount
 }
 
 class Transaction {
-  ID
-  status
-  amount
+  + status
+  + amount
+  + type
+  + completeTransaction()
 }
 
 class DisplayInterface {
-  type
+  + type
+  + displayOptions()
+  + displayMessage()
 }
 
-class PaymentMethod {
-  type
-}
-
-class CurrencyNote {
-  ID
-  isOriginal
-  value
-}
-
-class Error {
-  ID
-  type
-  message
+class Currency {
+  + type
+  + status
+  + recognizeCurrency()
 }
 
 class ErrorMessage {
-  message
+  + message
+  + type
+  + display()
 }
 
 class TouchScreen {
-  size
+  + type
+  + size
+  + handleInput()
 }
 
-TicketDistributor *-- Ticket : The TicketDistributor issues and manages Tickets; Tickets cannot exist independently without the distributor.
-TicketDistributor --> MetroPass : The TicketDistributor reads and processes MetroPasses.
-TicketDistributor --> TimeCard : The TicketDistributor reads and processes TimeCards.
-TicketDistributor *-- Transaction : The TicketDistributor creates and manages Transactions; Transactions are intrinsically tied to the distributor.
-TicketDistributor *-- DisplayInterface : The TicketDistributor uses a DisplayInterface; the interface is part of the distributor and cannot exist independently.
-TicketDistributor --> PaymentMethod : The TicketDistributor processes various PaymentMethods.
-TicketDistributor --> CurrencyNote : The TicketDistributor recognizes and processes CurrencyNotes.
-TicketDistributor --> Error : The TicketDistributor handles and reports Errors.
-TicketDistributor *-- TouchScreen : The TicketDistributor uses a TouchScreen; the touchscreen is an integral part of the distributor.
-TicketDistributor --> Passenger : The TicketDistributor serves Passengers.
-Transaction --> PaymentMethod : A Transaction uses a PaymentMethod.
-Error *-- ErrorMessage : An Error contains an ErrorMessage; the message is inseparable from the error.
+TicketDistributor "*" o-- "*" Ticket : issues
+TicketDistributor "*" --> "*" MetroPass : reads
+TicketDistributor "*" --> "*" TimeCard : reads
+TicketDistributor "*" o-- "*" Transaction : handles
+TicketDistributor "1" *-- "1" DisplayInterface : uses
+TicketDistributor "1" *-- "1" TouchScreen : uses
+Transaction "1" --> "1" Payment : uses
+Ticket "1" --> "1" Passenger : issued to
+TicketDistributor "*" --> "*" ErrorMessage : displays
+Payment "1" --> "1" Currency : uses
 
 @enduml

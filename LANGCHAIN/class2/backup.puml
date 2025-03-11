@@ -1,0 +1,87 @@
+@startuml
+
+class TicketDistributor {
+  ID
+}
+
+class Passenger {
+  ID
+  type
+  isFrequentTraveler
+}
+
+class Ticket {
+  ID
+  type
+  price
+  departureTime
+  date
+  time
+  validFrom
+  validTill
+  validityDuration
+  issuedFrom
+  destinationStation
+}
+
+class MetroPass {
+  ID
+  type
+  validityDuration
+}
+
+class TimeCard {
+  ID
+  type
+  validityDuration
+}
+
+class Transaction {
+  ID
+  status
+  amount
+}
+
+class DisplayInterface {
+  type
+}
+
+class PaymentMethod {
+  type
+}
+
+class CurrencyNote {
+  ID
+  isOriginal
+  denomination
+}
+
+class Error {
+  ID
+  type
+  message
+}
+
+class ErrorMessage {
+  message
+}
+
+class TouchScreen {
+  size
+}
+
+TicketDistributor "*" o-- "*" Ticket : Issues
+TicketDistributor "*" --> "*" Passenger : Issues to
+TicketDistributor "*" --> "*" MetroPass : Reads
+TicketDistributor "*" --> "*" TimeCard : Reads
+TicketDistributor "*" o-- "*" Transaction : Handles
+TicketDistributor "*" --> "*" PaymentMethod : Processes
+TicketDistributor "*" --> "*" CurrencyNote : Recognizes
+TicketDistributor "*" --> "*" Error : Handles
+TicketDistributor "1" *-- "1" DisplayInterface : Uses
+TicketDistributor "1" *-- "1" TouchScreen : Uses
+Transaction "1" --> "1" PaymentMethod : Uses
+Ticket "1" --> "1" Passenger : Issued to
+Error "1" *-- "1" ErrorMessage : Displays
+
+@enduml
