@@ -1,0 +1,51 @@
+@startuml
+start
+
+:Start Transaction;
+:Display Interface shows ticket options;
+
+if (User selects Ticket Type?) then (Yes)
+    :Select Single Trip, Round Trip or Multiple Trips;
+    :Select Metro Pass or Time Card;
+else (No)
+    stop
+endif
+
+if (User selects Metro Pass or Time Card?) then (Yes)
+    :Read Metro Pass/Time Card;
+    if (Is Metro Pass/Time Card Valid?) then (Yes)
+        :Proceed to Payment;
+    else (No)
+        :Display Error Message;
+        stop
+    endif
+endif
+
+if (User selects Payment Method?) then (Yes)
+    :Select Cash, Credit/Debit Card or Smartcard;
+else (No)
+    stop
+endif
+
+if (Payment Successful?) then (Yes)
+    :Print and Dispense Tickets;
+    :Send Confirmation Message to Registered Number;
+else (No)
+    if (Insufficient Amount or Balance?) then (Yes)
+        :Abort Transaction;
+        :Display Error Message;
+        stop
+    endif
+endif
+
+if (Change to Return?) then (Yes)
+    :Return Change;
+endif
+
+if (Update Ticket Information?) then (Yes)
+    :Print Updated Information;
+endif
+
+:End Transaction;
+stop
+@enduml
