@@ -1,6 +1,39 @@
 @startuml
 
-(*) -> :start ;
-:end ; -> (*)
+
+:start ; -> :selectTicketType ;
+:selectTicketType ; -> :selectTicketQuantity ;
+:selectTicketQuantity ; -> :updateTicketInformation ;
+:updateTicketInformation ; -> :choosePaymentMethod ;
+:choosePaymentMethod ; -> :isPaymentValid ;
+:isPaymentValid ; -> :mergeValidation ;
+:isPaymentValid ; -> :displayErrorMessage ;
+:displayErrorMessage ; -> :abortTransaction ;
+:abortTransaction ; -> :end ;
+:mergeValidation ; -> :splitPaymentMethods ;
+fork
+  -> :processCashPayment ;
+end fork
+fork
+  -> :processCardPayment ;
+end fork
+fork
+  -> :processSmartcardPayment ;
+end fork
+:processCashPayment ; -> :verifyCurrency ;
+:verifyCurrency ; -> :returnChange ;
+:returnChange ; -> :syncCompletion ;
+:processCardPayment ; -> :syncCompletion ;
+:processSmartcardPayment ; -> :readMetroPass ;
+:readMetroPass ; -> :checkSufficientBalance ;
+:checkSufficientBalance ; -> :readTimeCard ;
+:readTimeCard ; -> :syncCompletion ;
+:syncCompletion ; -> :sendTransactionMessage ;
+:sendTransactionMessage ; -> :printTicket ;
+:printTicket ; -> :dispenseTicket ;
+:dispenseTicket ; -> :paymentSuccessful ;
+:paymentSuccessful ; -> :end ;
+:paymentSuccessful ; -> :returnMoney ;
+:returnMoney ; -> :end ;
 
 @enduml

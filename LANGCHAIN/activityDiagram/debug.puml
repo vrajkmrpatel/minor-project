@@ -38,6 +38,6 @@ else (no)
     :mergeValidation;
 endif
 
-stop
+end
 
 @enduml
