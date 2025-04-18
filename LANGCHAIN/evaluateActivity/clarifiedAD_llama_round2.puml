@@ -1,61 +1,48 @@
 @startuml
 start
 
-:Identify Customer;
-if (Is customer registered?) then (yes)
-    :Retrieve customer info;
-else (no)
-    :Register new customer;
-endif
-
-:Request Catalog?;
-if (Catalog Requested?) then (yes)
-    :Send Catalog;
-endif
-
-while (More products to select?) is (yes)
-    :Select Product;
-    :Get Product Information;
-    :Check Product Availability;
-    if (Product Available?) then (yes)
-        :Add to Cart;
-    else (no)
-        :Notify Product Unavailable;
-        if (Is Gold Customer?) then (yes)
-            :Offer Email Notification for Backordered Products?;
-            if (Customer accepts notification?) then (yes)
-                :Add to Backorder Notification List;
-            endif
-        endif
-    endif
-endwhile
-
-if (Cart is not empty?) then (yes)
-    :Provide Shipping Address;
-    :Provide Billing Address;
-    :Provide Credit Card Number;
-    :Show Order Summary;
-    if (Customer Approves?) then (yes)
-        :Submit Order;
+:Driver arrives at barrier;
+:Driver inserts card;
+if (Card type = Employee?) then (yes)
+    :Verify employee card number;
+    if (Card number valid?) then (yes)
         fork
-            :Forward Order to Shipping;
-        fork again
-            :Forward Invoice to Accounting;
+            :Raise barrier;
+            :Allow car entry;
         end fork
-        :Earn Bonus Points;
-        if (Total spent > Gold Customer Threshold?) then (yes)
-            :Promote to Gold Customer;
-        endif
     else (no)
-        :Cancel Order;
+        :Reject entry;
+        :Sound alarm;
     endif
 else (no)
-    :Order Cancelled;
+    if (Card type = Guest?) then (yes)
+        :Verify guest card number and date;
+        if (Card valid?) then (yes)
+            fork
+                :Raise barrier;
+                :Allow car entry;
+            end fork
+        else (no)
+            :Reject entry;
+            :Sound alarm;
+        endif
+    else (no)
+        :Reject entry;
+        :Sound alarm;
+    endif
 endif
-
-if (Order placed via phone?) then (yes)
-    :Handle Product Return (Phone);
+while (Car park not full?) is (yes)
+    :Car parks;
+endwhile
+if (Car park full?) then (yes)
+    :Display "Full" sign;
 endif
+:Car leaves car park;
+:Lower exit barrier;
+if (Card type = Guest?) then (yes)
+    :Guest returns card to reception;
+endif
+:Switch off "Full" sign;
 
 stop
 @enduml

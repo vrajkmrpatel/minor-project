@@ -8,15 +8,14 @@ if (Card type = Employee?) then (yes)
     if (Card number valid?) then (yes)
         fork
             :Raise barrier;
-            :Allow car entry;
+            :Driver enters car park;
         end fork
-        :Check car park occupancy;
         if (Car park full?) then (yes)
             :Display "Full" sign;
         endif
     else (no)
-        :Reject entry;
-        :Sound alarm;
+        :Reject card;
+        :Display error message;
     endif
 else (no)
     if (Card type = Guest?) then (yes)
@@ -24,32 +23,33 @@ else (no)
         if (Card valid?) then (yes)
             fork
                 :Raise barrier;
-                :Allow car entry;
+                :Driver enters car park;
             end fork
-            :Check car park occupancy;
             if (Car park full?) then (yes)
                 :Display "Full" sign;
             endif
         else (no)
-            :Reject entry;
-            :Sound alarm;
+            :Reject card;
+            :Display error message;
         endif
     else (no)
-        :Reject entry;
-        :Sound alarm;
+        :Reject card;
+        :Display "Unauthorized" message;
     endif
 endif
+
 while (Car in car park?) is (yes)
-    :Car parks;
+    :Car remains in car park;
 endwhile
-:Car leaves car park;
-:Lower exit barrier;
+
+:Car approaches exit barrier;
+:Exit barrier raises automatically;
+:Driver exits car park;
 if (Card type = Guest?) then (yes)
     :Guest returns card to reception;
 endif
-if (Car park full? == false) then (yes)
+if (Car park full?) then (no)
     :Switch off "Full" sign;
 endif
-
 stop
 @enduml
