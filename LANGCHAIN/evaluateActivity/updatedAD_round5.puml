@@ -1,0 +1,164 @@
+@startuml
+start
+
+:Interaction Method?;
+if (Web) then (yes)
+  :Identify Customer (Web: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Check Spending Threshold;
+  if (Spending > Threshold) then (yes)
+    :Promote to Gold Customer;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    :Request Product Image?;
+    if (yes) then (yes)
+      :Retrieve Product Image;
+    endif
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+      if (Gold Customer?) then (yes)
+        :Offer Email Notification Signup;
+        if (Signup?) then (yes)
+          :Handle Email Signup;
+        endif
+      endif
+    endif
+  endwhile
+  :Provide Shipping Address;
+  if (Shipping Address = Billing Address?) then (yes)
+    :Provide Credit Card Number;
+  else (no)
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+  endif
+  :Order Summary;
+  if (Approve Order?) then (yes)
+    :Process Credit Card Payment;
+    if (Payment Successful) then (yes)
+      :Save Order Details;
+      :Send Order to Shipping;
+    else (no)
+      :Payment Failed;
+      :Notify Customer of Payment Failure;
+      :Cancel Order;
+      :Order Failed;
+      stop
+    endif
+  else (no)
+    :Cancel Order;
+    :Order Failed;
+    stop
+  endif
+else (Phone)
+  :Identify Customer (Phone: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Check Spending Threshold;
+  if (Spending > Threshold) then (yes)
+    :Promote to Gold Customer;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    :Request Product Image?;
+    if (yes) then (yes)
+      :Retrieve Product Image;
+    endif
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+      if (Gold Customer?) then (yes)
+        :Offer Email Notification Signup;
+        if (Signup?) then (yes)
+          :Handle Email Signup;
+        endif
+      endif
+    endif
+  endwhile
+  :Provide Shipping Address;
+  if (Shipping Address = Billing Address?) then (yes)
+    :Provide Credit Card Number;
+  else (no)
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+  endif
+  :Order Summary;
+  if (Approve Order?) then (yes)
+    :Process Credit Card Payment;
+    if (Payment Successful) then (yes)
+      :Save Order Details;
+      :Send Order to Shipping;
+    else (no)
+      :Payment Failed;
+      :Notify Customer of Payment Failure;
+      :Cancel Order;
+      :Order Failed;
+      stop
+    endif
+  else (no)
+    :Cancel Order;
+    :Order Failed;
+    stop
+  endif
+endif
+
+if (Payment Successful) then (yes)
+  :Forward Invoice to Accounting System;
+  :Check Order Status;
+  switch (OrderStatus)
+    case (Shipped)
+      :Send Shipping Confirmation;
+    case (Delayed)
+      :Handle Order Delay;
+    case (Cancelled)
+      :Handle Order Cancellation;
+    case (Incomplete)
+      :Handle Order Incompleteness;
+    case (Errors)
+      :Handle Order Errors;
+  endswitch
+  :Calculate Bonus Points (Points per dollar spent * Order Total);
+  :Award Bonus Points;
+  :Order Successful;
+  if (Interaction Method == Web) then (yes)
+    :Initiate Web Return Request (Optional);
+    if (Initiate Web Return Request) then (yes)
+      :Verify Return Eligibility (Web);
+      :Process Web Refund;
+      :Confirm Web Return;
+    endif
+  else (no)
+    if (Interaction Method == Phone) then (yes)
+      :Return Product (Optional);
+      if (Return Product) then (yes)
+        :Initiate Return;
+        :Verify Return Eligibility;
+        :Process Refund;
+        :Confirm Return;
+      endif
+    endif
+  endif
+else (no)
+  :Payment Failed;
+  :Cancel Order;
+  :Order Failed;
+endif
+
+stop
+@enduml

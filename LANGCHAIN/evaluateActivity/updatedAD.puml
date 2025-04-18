@@ -1,0 +1,75 @@
+@startuml
+start
+
+partition Customer Interaction {
+    if (Interaction Method) then (Web)
+        :Identify Customer (Customer Number or Name/Address);
+        :Select Products;
+        :Get Product Information (Price, Description, Picture (on demand), Availability);
+        while (More Products?) is (yes)
+            :Select Products;
+            :Get Product Information (Price, Description, Picture (on demand), Availability);
+        endwhile
+        :Provide Shipping Address;
+        :Provide Billing Address;
+        :Provide Credit Card Number;
+        :Submit Order;
+    else (Phone)
+        :Identify Customer (Customer Number or Name/Address);
+        :Select Products;
+        :Get Product Information (Price, Description, Availability);
+        while (More Products?) is (yes)
+            :Select Products;
+            :Get Product Information (Price, Description, Availability);
+        endwhile
+        :Provide Shipping Address;
+        :Provide Billing Address;
+        :Provide Credit Card Number;
+        :Submit Order;
+        :Return Product (Phone);
+    endif
+}
+
+partition Order Processing {
+    if (Order Submission Successful?) then (yes)
+        :Forward Order to Shipping;
+        :Generate Invoice;
+        :Forward Invoice to Accounting;
+        :Check Customer Spending;
+        if (Customer Spending > Threshold) then (yes)
+            :Promote to Gold Customer;
+        endif
+        :Earn Bonus Points;
+        if (Product on Backorder) then (yes)
+            :Offer Email Notification (Gold Customers Only);
+        endif
+        :Check Order Status;
+    else (no)
+        :Handle Order Submission Failure;
+        :Notify Customer of Failure;
+        stop
+    endif
+}
+
+partition Customer Actions {
+    if (Order Status Check Requested) then (yes)
+        :Check Order Status;
+    endif
+    if (Order Cancellation Requested) then (yes)
+        :Cancel Order;
+        if (Order Cancellation Successful?) then (yes)
+            if (Customer is Gold) then (yes)
+                :Return Product (Extended Period);
+            else (no)
+                :Return Product (Phone);
+            endif
+        else (no)
+            :Handle Order Cancellation Failure;
+            :Notify Customer of Failure;
+        endif
+    endif
+}
+
+stop
+
+@enduml

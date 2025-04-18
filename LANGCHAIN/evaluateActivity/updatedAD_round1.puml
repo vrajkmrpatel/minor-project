@@ -1,0 +1,106 @@
+@startuml
+start
+
+:Interaction Method?;
+if (Web) then (yes)
+  :Identify Customer (Web: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+    endif
+  endwhile
+  :Provide Shipping Address;
+  :Provide Billing Address;
+  :Provide Credit Card Number;
+  :Submit Order;
+  if (Payment Valid) then (yes)
+    :Process Payment;
+    :Forward Order to Shipping;
+    :Check Spending Threshold;
+    if (Spending > Threshold) then (yes)
+      :Promote to Gold Customer;
+    endif
+    :Earn Bonus Points;
+    :Check Order Status;
+    if (Order Successful) then (yes)
+      :End;
+    else (no)
+      :Handle Order Failure;
+    endif
+  else (no)
+    :Payment Failed;
+    :Cancel Order;
+    :Check Order Status;
+    :End;
+  endif
+else (Phone)
+  :Identify Customer (Phone: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+    endif
+  endwhile
+  :Provide Shipping Address;
+  :Provide Billing Address;
+  :Provide Credit Card Number;
+  :Submit Order;
+  if (Payment Valid) then (yes)
+    :Process Payment;
+    :Forward Order to Shipping;
+    :Check Spending Threshold;
+    if (Spending > Threshold) then (yes)
+      :Promote to Gold Customer;
+    endif
+    :Earn Bonus Points;
+    :Check Order Status;
+    if (Order Successful) then (yes)
+      :End;
+    else (no)
+      :Handle Order Failure;
+    endif
+  else (no)
+    :Payment Failed;
+    :Cancel Order;
+    :Check Order Status;
+    :End;
+  endif
+endif
+
+:Check Order Status;
+
+if (Order needs attention) then (yes)
+  :Handle Order Issue;
+endif
+
+:Return Product (Phone Only);
+
+if (Gold Customer and Extended Return Period) then (yes)
+  :Process Extended Return;
+else (no)
+  :Process Standard Return;
+endif
+
+stop
+@enduml

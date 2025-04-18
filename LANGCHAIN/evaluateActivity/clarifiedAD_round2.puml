@@ -1,0 +1,98 @@
+@startuml
+start
+
+:Identify Customer;
+if (Customer uses web?) then (yes)
+    :Select Interaction Method (Order/Catalog);
+    if (Order?) then (yes)
+        :Select Product;
+        :Get Product Information;
+        :Check Product Availability;
+        if (isProductAvailable?) then (yes)
+            while (More Products?) is (yes)
+                :Select Product;
+                :Get Product Information;
+                :Check Product Availability;
+                if (isProductAvailable?) then (yes)
+                    :Add to Cart;
+                else (no)
+                    :Display Out of Stock Message;
+                endif
+            endwhile
+            :Provide Shipping Address;
+            :Provide Billing Address;
+            :Provide Credit Card Info;
+            if (isPaymentValid?) then (yes)
+                :Submit Order;
+                :Generate Invoice;
+                :Forward Invoice to Accounting;
+                :Forward Order to Shipping;
+                :Check Order Status;
+                :Earn Bonus Points;
+                if (Customer is Gold?) then (yes)
+                    :Offer Extended Return Period;
+                    if (Product on Backorder?) then (yes)
+                        :Offer Email Notification Signup;
+                    endif
+                endif
+            else (no)
+                :Display Payment Error;
+            endif
+        else (no)
+            :Display Out of Stock Message;
+        endif
+    else (no)
+        :Request Catalog;
+    endif
+else (no)
+    :Handle Phone Interaction;
+    if (Order?) then (yes)
+        :Select Product;
+        :Get Product Information;
+        :Check Product Availability;
+        if (isProductAvailable?) then (yes)
+            while (More Products?) is (yes)
+                :Select Product;
+                :Get Product Information;
+                :Check Product Availability;
+                if (isProductAvailable?) then (yes)
+                    :Add to Cart;
+                else (no)
+                    :Display Out of Stock Message;
+                endif
+            endwhile
+            :Provide Shipping Address;
+            :Provide Billing Address;
+            :Provide Credit Card Info;
+            if (isPaymentValid?) then (yes)
+                :Submit Order;
+                :Generate Invoice;
+                :Forward Invoice to Accounting;
+                :Forward Order to Shipping;
+                :Check Order Status;
+                :Earn Bonus Points;
+                if (Customer is Gold?) then (yes)
+                    :Offer Extended Return Period;
+                    if (Product on Backorder?) then (yes)
+                        :Offer Email Notification Signup;
+                    endif
+                endif
+            else (no)
+                :Display Payment Error;
+            endif
+        else (no)
+            :Display Out of Stock Message;
+        endif
+    else (no)
+        if (Return Product?) then (yes)
+            :Process Product Return;
+        else (no)
+            :Request Catalog;
+        endif
+    endif
+endif
+
+:Promote to Gold Customer (if applicable);
+
+stop
+@enduml

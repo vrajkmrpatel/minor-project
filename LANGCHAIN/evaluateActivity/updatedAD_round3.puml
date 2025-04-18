@@ -1,0 +1,128 @@
+@startuml
+start
+
+:Interaction Method?;
+if (Web) then (yes)
+  :Identify Customer (Web: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Check Spending Threshold;
+  if (Spending > Threshold) then (yes)
+    :Promote to Gold Customer;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    opt :Retrieve Product Image;
+    end opt
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+      if (Gold Customer?) then (yes)
+        :Offer Email Notification Signup;
+        if (Signup?) then (yes)
+          :Handle Email Signup;
+        endif
+      endif
+    endif
+  endwhile
+  :Provide Shipping Address;
+  if (Shipping Address = Billing Address?) then (yes)
+    :Provide Credit Card Number;
+  else (no)
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+  endif
+  :Order Summary;
+  if (Approve Order?) then (yes)
+    :Process Payment;
+  else (no)
+    :Cancel Order;
+    :Order Failed;
+    stop
+  endif
+else (Phone)
+  :Identify Customer (Phone: Customer Number or Name/Address);
+  if (Existing Customer) then (yes)
+    :Retrieve Customer Data;
+  else (no)
+    :Create New Customer Profile;
+  endif
+  :Check Spending Threshold;
+  if (Spending > Threshold) then (yes)
+    :Promote to Gold Customer;
+  endif
+  :Request Catalog (Optional);
+  :Select Products;
+  while (More Products?) is (yes)
+    :Get Product Information;
+    opt :Retrieve Product Image;
+    end opt
+    :Check Product Availability;
+    if (Product Available) then (yes)
+      :Add to Order;
+    else (no)
+      :Notify Product Unavailable;
+      if (Gold Customer?) then (yes)
+        :Offer Email Notification Signup;
+        if (Signup?) then (yes)
+          :Handle Email Signup;
+        endif
+      endif
+    endif
+  endwhile
+  :Provide Shipping Address;
+  if (Shipping Address = Billing Address?) then (yes)
+    :Provide Credit Card Number;
+  else (no)
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+  endif
+  :Order Summary;
+  if (Approve Order?) then (yes)
+    :Process Payment;
+  else (no)
+    :Cancel Order;
+    :Order Failed;
+    stop
+  endif
+endif
+
+if (Payment Valid) then (yes)
+  :Forward Invoice to Accounting System;
+  :Forward Order to Shipping;
+  :Check Order Status;
+  if (Order Needs Attention?) then (yes)
+    :Handle Order Issue;
+  endif
+  :Earn Bonus Points;
+  :Order Successful;
+else (no)
+  :Payment Failed;
+  :Cancel Order;
+  :Order Failed;
+endif
+
+if (Interaction Method == Phone) then (yes)
+  :Return Product;
+  if (Gold Customer and Extended Return Period) then (yes)
+    :Initiate Return;
+    :Verify Return Eligibility;
+    :Process Refund;
+    :Confirm Return;
+  else (no)
+    :Initiate Return;
+    :Verify Return Eligibility;
+    :Process Refund;
+    :Confirm Return;
+  endif
+endif
+
+stop
+@enduml

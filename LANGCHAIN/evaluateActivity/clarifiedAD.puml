@@ -1,0 +1,65 @@
+@startuml
+start
+
+:Identify Customer;
+if (Customer uses Customer Number?) then (yes)
+  :Identify Customer by Number;
+else (no)
+  :Identify Customer by Name and Address;
+endif
+if (Customer Identification Successful?) then (yes)
+  :Request Catalog?;
+  if (Catalog Requested?) then (yes)
+    :Send Catalog;
+  endif
+  :Select Product;
+  :Get Product Information;
+  :Check Product Availability;
+  if (Product Available?) then (yes)
+    :Place Order;
+    :Provide Shipping Address;
+    :Provide Billing Address;
+    :Provide Credit Card Info;
+    if (Payment Valid?) then (yes)
+      :Submit Order;
+      :Forward Order to Shipping;
+      :Check Order Status;
+      if (Order Cancelled?) then (yes)
+        :Cancel Order;
+        :End;
+      else (no)
+        :Earn Bonus Points;
+        if (Customer Spending > Threshold?) then (yes)
+          :Promote to Gold Customer;
+        endif
+        if (Product on Backorder?) then (yes)
+          :Sign Up for Email Notification?;
+          if (Yes) then (yes)
+            :Sign Up for Email Notification;
+          endif
+        endif
+        :End;
+      endif
+    else (no)
+      :Payment Failed;
+      :Notify Customer of Payment Failure;
+      :End;
+    endif
+  else (no)
+    :Notify Customer of Unavailability;
+  endif
+else (no)
+  :Customer Identification Failed;
+  :Notify Customer of Identification Failure;
+  :End;
+endif
+
+fork
+  :Handle Phone Order Cancellation;
+  :Handle Web Order Cancellation;
+fork again
+
+:Handle Product Return (Phone Only);
+
+
+@enduml

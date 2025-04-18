@@ -1,0 +1,61 @@
+@startuml
+start
+
+:Identify Customer;
+if (Is customer registered?) then (yes)
+    :Retrieve customer info;
+else (no)
+    :Register new customer;
+endif
+
+:Request Catalog?;
+if (Catalog Requested?) then (yes)
+    :Send Catalog;
+endif
+
+while (More products to select?) is (yes)
+    :Select Product;
+    :Get Product Information;
+    :Check Product Availability;
+    if (Product Available?) then (yes)
+        :Add to Cart;
+    else (no)
+        :Notify Product Unavailable;
+        if (Is Gold Customer?) then (yes)
+            :Offer Email Notification for Backordered Products?;
+            if (Customer accepts notification?) then (yes)
+                :Add to Backorder Notification List;
+            endif
+        endif
+    endif
+endwhile
+
+if (Cart is not empty?) then (yes)
+    :Provide Shipping Address;
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+    :Show Order Summary;
+    if (Customer Approves?) then (yes)
+        :Submit Order;
+        fork
+            :Forward Order to Shipping;
+        fork again
+            :Forward Invoice to Accounting;
+        end fork
+        :Earn Bonus Points;
+        if (Total spent > Gold Customer Threshold?) then (yes)
+            :Promote to Gold Customer;
+        endif
+    else (no)
+        :Cancel Order;
+    endif
+else (no)
+    :Order Cancelled;
+endif
+
+if (Order placed via phone?) then (yes)
+    :Handle Product Return (Phone);
+endif
+
+stop
+@enduml

@@ -1,0 +1,93 @@
+@startuml
+start
+
+:Identify Customer;
+if (Customer uses web?) then (yes)
+    :Select Interaction Method (Order/Catalog/Cancel Order);
+    if (Order?) then (yes)
+        :Select Product;
+        while (More Products?) is (yes)
+            :Get Product Information;
+            :Check Product Availability;
+            if (isProductAvailable?) then (yes)
+                :Add to Cart;
+            else (no)
+                :Display Out of Stock Message;
+            endif
+        endwhile
+        :Provide Shipping Address;
+        :Provide Billing Address;
+        :Provide Credit Card Info;
+        if (isPaymentValid?) then (yes)
+            :Submit Order;
+            :Generate Invoice;
+            :Forward Invoice to Accounting;
+            :Forward Order to Shipping;
+            :Earn Bonus Points;
+            :Check Gold Customer Status;
+            if (Customer is Gold?) then (yes)
+                :Offer Extended Return Period;
+                if (Product on Backorder?) then (yes)
+                    :Offer Email Notification Signup;
+                endif
+            endif
+        else (no)
+            :Display Payment Error;
+            if (Retry Payment?) then (yes)
+                :Provide Credit Card Info;
+            else (no)
+                :Cancel Order;
+            endif
+        endif
+    else (no)
+        :Request Catalog;
+    endif
+else (no)
+    :Handle Phone Interaction;
+    if (Order?) then (yes)
+        :Select Product;
+        while (More Products?) is (yes)
+            :Get Product Information;
+            :Check Product Availability;
+            if (isProductAvailable?) then (yes)
+                :Add to Cart;
+            else (no)
+                :Display Out of Stock Message;
+            endif
+        endwhile
+        :Provide Shipping Address;
+        :Provide Billing Address;
+        :Provide Credit Card Info;
+        if (isPaymentValid?) then (yes)
+            :Submit Order;
+            :Generate Invoice;
+            :Forward Invoice to Accounting;
+            :Forward Order to Shipping;
+            :Earn Bonus Points;
+            :Check Gold Customer Status;
+            if (Customer is Gold?) then (yes)
+                :Offer Extended Return Period;
+                if (Product on Backorder?) then (yes)
+                    :Offer Email Notification Signup;
+                endif
+            endif
+        else (no)
+            :Display Payment Error;
+            if (Retry Payment?) then (yes)
+                :Provide Credit Card Info;
+            else (no)
+                :Cancel Order;
+            endif
+        endif
+    else (no)
+        if (Return Product?) then (yes)
+            :Process Product Return;
+        else (no)
+            :Request Catalog;
+            :Cancel Order;
+        endif
+    endif
+endif
+
+stop
+@enduml
