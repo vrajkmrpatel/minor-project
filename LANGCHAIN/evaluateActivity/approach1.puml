@@ -1,44 +1,18 @@
 @startuml
 start
 
-:identifyCustomer;
-:requestCatalog;
-:selectProduct;
-:getProductInformation;
-:checkProductAvailability;
-
-if (isProductAvailable?) then (yes)
-    :placeOrder;
-    :provideShippingAddress;
-    :provideBillingAddress;
-    :provideCreditCardNumber;
-    :submitOrder;
-    if (isPaymentValid?) then (yes)
-        :forwardOrderToShipping;
-        :earnBonusPoints;
-        :promoteToGoldCustomer;
-        :signUpForEmailNotification;
-    else (no)
-        :cancelOrder;
-    endif
-    
-else (no)
-    :requestCatalog;
+:insertIdentityCard;
+:verifyCardNumber;
+if (isIdentityValid?) then (true)
+    :issueIdentityCard;
+else (false)
+    :collectGuestCard;
 endif
-
-:checkOrderStatus;
-if (isOrderCancelled?) then (yes)
-    :cancelOrder;
-else (no)
-    fork
-        :returnProductByPhone;
-    fork again
-        :returnProductExtended;
-    end fork
-endif
-
-:joinReturnMethods;
-
+:mergePostIdentityCheck;
+:raiseBarrier;
+:displayFullSign;
+:lowerBarrier;
+:switchOffFullSign;
 
 stop
 @enduml

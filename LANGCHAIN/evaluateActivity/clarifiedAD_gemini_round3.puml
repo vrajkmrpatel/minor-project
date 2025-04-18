@@ -1,82 +1,54 @@
 @startuml
 start
 
-:Identify Customer;
-if (Is customer registered?) then (yes)
-    :Retrieve customer info;
-else (no)
-    :Register new customer;
-endif
-
-if (Customer identification valid?) then (yes)
-    :Request Catalog?;
-    if (Request Catalog?) then (yes)
-        :Send Catalog;
-    endif
-    while (More products to select?) is (yes)
-        :Select Product;
-        :Get Product Information;
-        if (Product available?) then (yes)
-            :Check Inventory;
-            if (Sufficient stock?) then (yes)
-                :Add to Cart;
+while (More cars arriving?) is (yes)
+    :Insert Identity Card;
+    if (Is it an employee card?) then (yes)
+        :Verify Card Number;
+        if (Is Card Valid?) then (yes)
+            :Check Parking Spaces;
+            if (Parking Space Available?) then (yes)
+                fork
+                    :Raise Barrier;
+                fork again
+                    :Car enters car park;
+                end fork
             else (no)
-                :Product Out Of Stock;
-                if (Customer wants alternative or backorder?) then (yes)
-                    :Offer alternative or backorder option?;
-                    if (Customer accepts backorder?) then (yes)
-                        :Add to backorder;
-                        :Sign up for email notification?;
-                        if (Customer wants email notification?) then (yes)
-                            :Add customer to notification list;
-                        endif
-                    else (no)
-                        :Offer alternative product?;
-                        if (Customer accepts alternative?) then (yes)
-                            :Add alternative to cart;
-                        endif
-                    endif
-                endif
+                :Display "Full" sign;
             endif
         else (no)
-            :Product Unavailable;
-        endif
-    endwhile
-    :Provide Shipping Address;
-    :Provide Billing Address;
-    :Provide Credit Card Number;
-    if (Credit card valid?) then (yes)
-        :Submit Order;
-        :Process Payment;
-        :Forward Order to Shipping;
-        :Earn Bonus Points;
-        if (Total spent > Gold Customer threshold?) then (yes)
-            :Promote to Gold Customer;
+            :Reject Card;
         endif
     else (no)
-        :Invalid Payment;
-        :Cancel Order;
-    endif
-else (no)
-    :Invalid Customer;
-endif
-
-:Check Order Status;
-if (Order cancelled?) then (yes)
-    :Order Cancelled;
-else (no)
-    if (Return requested?) then (yes)
-        if (Phone order?) then (yes)
-            :Return Product (Phone);
-        else (no)
-            if (Is Gold Customer?) then (yes)
-                :Return Product (Extended period);
+        :Verify Guest Card;
+        if (Is Guest Card Valid?) then (yes)
+            :Check Parking Spaces;
+            if (Parking Space Available?) then (yes)
+                fork
+                    :Raise Barrier;
+                fork again
+                    :Car enters car park;
+                end fork
             else (no)
-                :Return Product (Standard period);
+                :Display "Full" sign;
             endif
+        else (no)
+            :Reject Guest Card;
         endif
     endif
-endif
+endwhile
+
+while (More cars leaving?) is (yes)
+    fork
+        :Car leaves car park;
+    fork again
+        :Lower Barrier;
+    end fork
+    :Check Parking Spaces;
+    if (Parking Space Available?) then (yes)
+        :Switch off "Full" sign;
+    endif
+endwhile
 
 stop
 @enduml
