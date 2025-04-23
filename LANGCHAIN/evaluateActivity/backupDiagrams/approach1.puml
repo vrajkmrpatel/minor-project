@@ -1,19 +1,16 @@
 @startuml
 start
 
-:collectGuestCard;
 :insertIdentityCard;
 :verifyCardNumber;
-
-if (isCardNumberValid?) then (true)
+if (isIdentityValid?) then (true)
     :issueIdentityCard;
-    :raiseBarrier;
-    :displayFullSign;
 else (false)
-    :returnGuestCard;
+    :collectGuestCard;
 endif
-
-:mergeAfterValidation;
+:mergePostIdentityCheck;
+:raiseBarrier;
+:displayFullSign;
 :lowerBarrier;
 :switchOffFullSign;
 

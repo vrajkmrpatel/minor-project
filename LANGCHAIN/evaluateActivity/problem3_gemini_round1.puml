@@ -1,0 +1,48 @@
+@startuml
+start
+
+while (More cars?) is (yes)
+    if (isEmployeeCard?) then (yes)
+        :Insert employee card;
+        :Verify employee card number;
+        if (isCardNumberValid?) then (yes)
+            :Raise barrier;
+            fork
+                :Car enters car park;
+            fork again
+                if (isCarParkFull?) then (yes)
+                    :Switch on "Full" sign;
+                endif
+            end fork
+        else (no)
+            :Reject employee card;
+            :Sound alarm;
+        endif
+    else (no)
+        if (isGuestCard?) then (yes)
+            :Insert guest card;
+            :Verify guest card number and date;
+            if (isGuestCardValid?) then (yes)
+                :Raise barrier;
+                :Car enters car park;
+            else (no)
+                :Reject guest card;
+                :Sound alarm;
+            endif
+        else (no)
+            :Deny access;
+            :Sound alarm;
+        endif
+    endif
+    :Car leaves car park;
+    :Raise exit barrier;
+    if (isCarParkFull?) then (no)
+        :Switch off "Full" sign;
+    endif
+    if (isGuestCard?) then (yes)
+        :Return guest card to reception;
+    endif
+endwhile
+
+stop
+@enduml

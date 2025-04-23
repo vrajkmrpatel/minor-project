@@ -1,0 +1,40 @@
+@startuml
+|Receptionist|
+start
+if (Is this a new patient?) then (yes)
+    :Enter Patient Information;
+    :Update Family Information;
+    :Assign Primary Care Physician;
+else (no)
+    :Retrieve Patient Information;
+endif
+:Schedule Appointment;
+
+|Nurse|
+fork
+    :Track Visit Results;
+    :Record Diagnosis;
+    while (More Medications?) is (yes)
+        :Enter Prescription;
+        :Record Medication;
+    endwhile
+    :Enter Treatment Information;
+end fork
+
+|Nurse|
+:Print Visit History;
+
+|Doctor|
+:View Patient History;
+if (Doctor enters treatment info?) then (yes)
+    :Enter Treatment Information;
+    while (More Medications?) is (yes)
+        :Enter Prescription;
+        :Record Medication;
+    endwhile
+else (no)
+endif
+
+|Receptionist|
+stop
+@enduml

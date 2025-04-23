@@ -1,0 +1,32 @@
+@startuml
+start
+
+:identifyCustomer;
+:requestCatalog;
+:selectProduct;
+:getProductInformation;
+:checkProductAvailability;
+
+if (isProductAvailable?) then (yes)
+    :placeOrder;
+    :provideShippingAddress;
+    :provideBillingAddress;
+    :provideCreditCardNumber;
+    :submitOrder;
+    if (isPaymentValid?) then (yes)
+        :generateInvoice;
+        :forwardOrderToShipping;
+        :checkOrderStatus;
+        :promoteToGoldCustomer;
+        :signUpForEmailNotification;
+    else (no)
+        :returnProduct;
+    endif
+    :mergePaymentValidation;
+
+else (no)
+    :cancelOrder;
+endif
+
+stop
+@enduml

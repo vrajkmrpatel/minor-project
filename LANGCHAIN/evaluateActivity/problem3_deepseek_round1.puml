@@ -1,0 +1,55 @@
+@startuml
+start
+
+fork
+    :Employee arrives at barrier;
+    :Inserts identity card;
+    :Card reader verifies card number;
+    if (Is card number valid?) then (yes)
+        :Raise barrier;
+        :Employee enters car park;
+    else (no)
+        :Deny access;
+    endif
+fork again
+    :Guest arrives at barrier;
+    if (Guest has pre-registered?) then (yes)
+        :Inserts guest card;
+        :Card reader verifies guest card;
+        if (Is guest card valid?) then (yes)
+            :Raise barrier;
+            :Guest enters car park;
+        else (no)
+            :Deny access;
+        endif
+    else (no)
+        :Guest goes to reception to collect card;
+        :Reception issues guest card;
+        :Guest inserts guest card;
+        :Card reader verifies guest card;
+        if (Is guest card valid?) then (yes)
+            :Raise barrier;
+            :Guest enters car park;
+        else (no)
+            :Deny access;
+        endif
+    endif
+end fork
+
+while (Car park not full?) is (yes)
+    :Car enters car park;
+endwhile
+
+if (Car park is full?) then (yes)
+    :Display "Full" sign;
+endif
+
+:Car leaves car park;
+:Barrier raises automatically;
+if (Car park was full?) then (yes)
+    :Switch off "Full" sign;
+endif
+:Guest returns card to reception;
+
+stop
+@enduml

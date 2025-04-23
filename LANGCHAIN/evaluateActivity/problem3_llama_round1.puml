@@ -1,0 +1,62 @@
+@startuml
+start
+
+:Driver arrives at barrier;
+
+if (Is it a guest?) then (yes)
+    :Collect guest card;
+    if (Guest card valid?) then (yes)
+        :Verify guest card number;
+        if (Car park full?) then (yes)
+            :Display "Full" sign;
+            :Driver leaves;
+            stop
+        else (no)
+            :Raise barrier;
+            :Driver enters car park;
+            :Lower barrier;
+        endif
+    else (no)
+        :Guest card invalid;
+        :Return guest card;
+        :Driver leaves;
+        stop
+    endif
+else (no)
+    :Insert employee identity card;
+    :Verify employee card number;
+    if (Employee card valid?) then (yes)
+        if (Car park full?) then (yes)
+            :Display "Full" sign;
+            :Driver leaves;
+            stop
+        else (no)
+            :Raise barrier;
+            :Driver enters car park;
+            :Lower barrier;
+        endif
+    else (no)
+        :Invalid card;
+        :Driver leaves;
+        stop
+    endif
+endif
+
+while (Car in car park?) is (yes)
+    :Car remains in car park;
+endwhile
+
+:Car leaves car park;
+:Raise exit barrier;
+if (Was it a guest?) then (yes)
+    :Return guest card to reception;
+endif
+:Lower exit barrier;
+if (Car park full sign displayed?) then (yes)
+    :Check for available spaces;
+    if (Spaces available?) then (yes)
+        :Switch off "Full" sign;
+    endif
+endif
+stop
+@enduml

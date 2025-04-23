@@ -1,0 +1,37 @@
+@startuml
+start
+
+:Enter new patient information;
+if (Is patient a new patient?) then (yes)
+    :Assign patient to family;
+    :Assign primary care physician;
+endif
+
+:Schedule appointment;
+
+fork
+    :Track visit results;
+    :Record diagnosis;
+    :Enter treatment information;
+    while (More medications?) is (yes)
+        :Enter prescription;
+        :Record medication;
+    endwhile
+fork again
+    :Print visit history;
+end fork
+
+fork
+    :View patient history;
+fork again
+    if (Doctor needs to enter treatment info?) then (yes)
+        :Enter treatment information;
+        while (More medications?) is (yes)
+            :Enter prescription;
+            :Record medication;
+        endwhile
+    endif
+end fork
+
+stop
+@enduml

@@ -21,17 +21,17 @@ while (More cars arriving?) is (yes)
     endif
 endwhile
 
-while (More cars leaving?) is (yes)
-    :Car leaves car park;
-    :Raise Exit Barrier;
-    :Check Parking Spaces;
-    if (Parking Space Available?) then (yes)
-        :Switch off "Full" sign;
-    endif
-    if (Is Guest Card?) then (yes)
-        :Return Guest Card to Reception;
-    endif
-endwhile
+' while (More cars leaving?) is (yes)
+'     :Car leaves car park;
+'     :Raise Exit Barrier;
+'     :Check Parking Spaces;
+'     if (Parking Space Available?) then (yes)
+'         :Switch off "Full" sign;
+'     endif
+'     if (Is Guest Card?) then (yes)
+'         :Return Guest Card to Reception;
+'     endif
+' endwhile
 
 stop
 @enduml

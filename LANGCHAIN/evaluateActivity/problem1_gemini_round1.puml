@@ -1,0 +1,59 @@
+@startuml
+start
+
+:Customer Interaction Method?;
+if (Web) then (yes)
+    :Identify Customer (Customer Number or Name/Address)?;
+    while (More products?) is (yes)
+        :Select Product (Product Number or Online Catalog)?;
+        :Get Product Information;
+        if (Show Picture?) then (yes)
+            :Retrieve Product Picture;
+        endif
+        :Add to Cart;
+    endwhile
+    :Provide Shipping Address;
+    :Provide Billing Address;
+    :Provide Credit Card Number;
+    :Submit Order;
+else (no)
+    :Phone Interaction;
+    :Identify Customer (Customer Number or Name/Address)?;
+    while (More products?) is (yes)
+        :Select Product (Verbal Input)?;
+        :Get Product Information;
+        if (Show Picture?) then (yes)
+            :Retrieve Product Picture;
+        endif
+        :Add to Cart;
+    endwhile
+    :Provide Shipping Address (Verbal Input);
+    :Provide Billing Address (Verbal Input);
+    :Provide Credit Card Number (Verbal Input);
+    :Submit Order;
+endif
+
+if (Payment Valid?) then (yes)
+    :Generate Invoice;
+    fork
+        :Forward Order to Shipping;
+    fork again
+        :Forward Invoice to Accounting;
+    end fork
+    :Check Customer Spending;
+    if (Spending > Threshold?) then (yes)
+        :Promote to Gold Customer;
+    endif
+    if (Product on Backorder?) then (yes)
+        :Sign Up for Email Notification (Gold Customers Only)?;
+    endif
+else (no)
+    if (Phone Interaction?) then (yes)
+        :Return Product;
+    else (no)
+        :Cancel Order;
+    endif
+endif
+
+stop
+@enduml
