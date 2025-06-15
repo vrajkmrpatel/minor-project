@@ -1,0 +1,56 @@
+@startuml
+start
+
+:Get User Age;
+if (Age < 18?) then (yes)
+    :Request Full Name and Student Card;
+    if (Valid Input?) then (yes)
+        :Register Under-Aged User;
+    else (no)
+        :Registration Failed;
+        stop
+    endif
+else (no)
+    :Request Full Name and ID Card;
+    if (Valid Input?) then (yes)
+        :Register Adult User;
+    else (no)
+        :Registration Failed;
+        stop
+    endif
+endif
+
+:Registration Complete;
+
+while (User wants to borrow a book?) is (yes)
+    :Select Book;
+    if (Book Available?) then (yes)
+        fork
+            :Borrow Book;
+            :Update Book Availability;
+        fork again
+            :Update User Borrow History;
+        end fork
+        if (Number of borrowed books < 4?) then (yes)
+            :Continue;
+        else (no)
+            :Borrow Limit Reached;
+        endif
+    else (no)
+        :Book Unavailable;
+    endif
+endwhile
+
+:User wants to return a book?;
+if (User wants to return a book?) then (yes)
+    :Select Book to Return;
+    :Return Book;
+    :Update Book Availability;
+    :Update User Borrow History;
+else (no)
+    :Proceed;
+endif
+
+:Get Borrow History;
+stop
+@enduml

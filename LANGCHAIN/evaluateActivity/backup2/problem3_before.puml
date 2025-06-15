@@ -9,14 +9,13 @@ if (isCardNumberValid?) then (true)
     :issueIdentityCard;
     :raiseBarrier;
     :displayFullSign;
-    :sendGuestCard;
 else (false)
     :returnGuestCard;
-    :lowerBarrier;
-    :switchOffFullSign;
 endif
 
 :mergeAfterValidation;
+:lowerBarrier;
+:switchOffFullSign;
 
 stop
 @enduml

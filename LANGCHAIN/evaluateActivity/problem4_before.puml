@@ -1,0 +1,19 @@
+@startuml
+start
+
+:Is user adult?;
+if (Is user adult?) then (yes)
+    :registerAdultUser;
+else (no)
+    :registerUnderAgedUser;
+endif
+
+:registrationComplete;
+
+:addBook;
+:borrowBook;
+:returnBook;
+:getBorrowHistory;
+
+stop
+@enduml

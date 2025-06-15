@@ -1,0 +1,38 @@
+@startuml
+start
+
+:Customer initiates purchase;
+if (Is customer a web user?) then (yes)
+    :Login;
+else (no)
+    :Proceed as guest;
+endif
+
+while (More items to add?) is (yes)
+    :Add line item to cart;
+endwhile
+
+:Review cart contents;
+if (Cart is empty?) then (no)
+    :Proceed to checkout;
+else (yes)
+    :Inform customer of empty cart;
+    stop
+endif
+
+fork
+    :Process payment;
+fork again
+    :Send order confirmation;
+end fork
+
+if (Payment successful?) then (yes)
+    :Update order status to "Complete";
+    :Update user state (if applicable);
+else (no)
+    :Update order status to "Failed";
+    :Update user state (if applicable);
+endif
+
+stop
+@enduml

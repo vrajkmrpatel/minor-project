@@ -1,51 +1,54 @@
 @startuml
+
 start
 
-:Start Transaction;
-:Display Interface shows ticket options;
-
-if (User selects Ticket Type?) then (Yes)
-    :Select Single Trip, Round Trip or Multiple Trips;
-    :Select Metro Pass or Time Card;
+:Customer identifies himself;
+if (Existing customer?) then (Yes)
+    :Enter customer number;
 else (No)
-    stop
+    :Provide name and address;
 endif
 
-if (User selects Metro Pass or Time Card?) then (Yes)
-    :Read Metro Pass/Time Card;
-    if (Is Metro Pass/Time Card Valid?) then (Yes)
-        :Proceed to Payment;
+:Select products from catalog;
+while (More products to add?) is (Yes)
+    :View product details;
+    :Check availability;
+    :Select quantity;
+endwhile (No)
+
+:Provide shipping and billing details;
+:Enter credit card details;
+:Review order summary;
+
+if (Order approved?) then (Yes)
+    :Submit order;
+    :Forward invoice to accounting;
+    :Send order details to shipping;
+    if (Gold customer?) then (Yes)
+        :Apply gold customer benefits;
+        if (Product on backorder?) then (Yes)
+            :Sign up for email notification;
+        endif
+    endif
+else (No)
+    :Cancel order;
+endif
+
+:Customer can check order status;
+if (Cancel request?) then (Yes)
+    :Cancel order if possible;
+endif
+
+if (Return request?) then (Yes)
+    if (Gold customer?) then (Yes)
+        :Return accepted (extended period);
     else (No)
-        :Display Error Message;
-        stop
+        :Return request processed (phone only);
     endif
 endif
 
-if (User selects Payment Method?) then (Yes)
-    :Select Cash, Credit/Debit Card or Smartcard;
-else (No)
-    stop
-endif
+:Customer can request a catalog;
 
-if (Payment Successful?) then (Yes)
-    :Print and Dispense Tickets;
-    :Send Confirmation Message to Registered Number;
-else (No)
-    if (Insufficient Amount or Balance?) then (Yes)
-        :Abort Transaction;
-        :Display Error Message;
-        stop
-    endif
-endif
-
-if (Change to Return?) then (Yes)
-    :Return Change;
-endif
-
-if (Update Ticket Information?) then (Yes)
-    :Print Updated Information;
-endif
-
-:End Transaction;
 stop
+
 @enduml

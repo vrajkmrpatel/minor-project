@@ -1,0 +1,42 @@
+@startuml
+start
+
+:identifyCustomer;
+:requestCatalog;
+:selectProduct;
+:getProductInformation;
+:checkProductAvailability;
+
+if (isProductAvailable) then (true)
+  :placeOrder;
+  :provideShippingAddress;
+  :provideBillingAddress;
+  :provideCreditCardNumber;
+  :submitOrder;
+  if (isPaymentValid) then (true)
+    :mergePaymentValidation;
+    :forwardOrderToShipping;
+    :earnBonusPoints;
+    :promoteToGoldCustomer;
+    :signUpForEmailNotification;
+    :end;
+  else (false)
+    :cancelOrder;
+    :checkOrderStatus;
+    if (isOrderCancelled) then (true)
+      fork
+        :returnProductByPhone;
+      fork again
+        :returnProductExtended;
+      end fork
+      :joinReturnMethods;
+      :end;
+    else (false)
+      :end;
+    endif
+  endif
+else (false)
+  :requestCatalog;
+endif
+
+@enduml

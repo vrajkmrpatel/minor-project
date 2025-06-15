@@ -22,13 +22,11 @@ if (isProductAvailable?) then (yes)
     else (no)
         :returnProduct;
     endif
-    
+    :mergePaymentValidation;
+
 else (no)
     :cancelOrder;
 endif
-
-:mergePaymentValidation;
-
 
 stop
 @enduml

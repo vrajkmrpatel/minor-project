@@ -1,0 +1,17 @@
+@startuml
+start
+
+:enterPatientInformation;
+:assignPatientToFamily;
+:assignPrimaryCarePhysician;
+:scheduleAppointment;
+:trackVisitResults;
+:recordDiagnosis;
+:enterTreatmentInformation;
+:enterPrescription;
+:recordMedication;
+:printVisitHistory;
+:viewPatientHistory;
+
+stop
+@enduml

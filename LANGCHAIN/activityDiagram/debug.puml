@@ -1,43 +1,17 @@
 @startuml
 start
 
-:selectTicketType;
-:selectTicketQuantity;
-:updateTicketInformation;
-:choosePaymentMethod;
+:Start Process;
 
-if (isPaymentValid) then (yes)
-    fork
-        :processCashPayment;
-        :returnChange;
-    fork again
-        :processCardPayment;
-    fork again
-        :processSmartcardPayment;
-        :readMetroPass;
-        :readTimeCard;
-        :checkSufficientBalance;
-    end fork
-    :verifyCurrency;
-    :returnMoney;
-    :syncCompletion;
-else (no)
-    :displayErrorMessage;
-    :abortTransaction;
+if (Condition A?) then (Yes)
+  :Action 1;
+  :Action 2;
+else (No)
+  :Action 3;
+  :Action 4;
 endif
 
-:sendTransactionMessage;
-:printTicket;
-:dispenseTicket;
+:End Process;
 
-if (isTransactionSuccessful) then (yes)
-    :mergeValidation;
-else (no)
-    :displayErrorMessage;
-    :abortTransaction;
-    :mergeValidation;
-endif
-
-end
-
+stop
 @enduml

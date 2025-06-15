@@ -1,0 +1,20 @@
+@startuml
+start
+
+:registerWebUser;
+:login;
+:addLineItemToCart;
+:makePurchase;
+:makePayment;
+
+if (isPaymentValid?) then (yes)
+    :completeTransaction;
+else (no)
+    :updateOrderStatus;
+endif
+
+:mergePaymentValidation;
+:changeUserState;
+
+stop
+@enduml
